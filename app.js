@@ -17,7 +17,7 @@ function MikeTarpeyCom(sampleConfig, extraOidcOptions) {
         issuer: `${process.env.OKTA_ORG_URL}/oauth2/default`,
         client_id: process.env.OKTA_CLIENT_ID,
         client_secret: process.env.OKTA_CLIENT_SECRET,
-        appBaseUrl: 'http://localhost:3000',
+        appBaseUrl: `http://localhost:${sampleConfig.port}`,
         redirect_uri: process.env.REDIRECT_URL,
         routes: sampleConfig.oidc.routes,
         scope: 'openid profile',

@@ -2,13 +2,13 @@
   "name": "miketarpeycom",
   "version": "1.0.0",
   "description": "Mike Tarpey's bio and blog.",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "start": "nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Mike Tarpey",
+  "license": "",
   "dependencies": {
     "@okta/oidc-middleware": "^4.0.3",
     "body-parser": "^1.19.0",
