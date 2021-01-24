@@ -1,0 +1,250 @@
+@import url(https://fonts.googleapis.com/css?family=Lato:700,400);
+
+/* most of the site*/
+* {
+  box-sizing: content-box;
+}
+
+a {
+  background-color: #222222;
+}
+header {
+  position: relative;
+  font-weight: bold;
+  font-size: 75%;
+  background-color: #444444;
+  padding: 8px 5%;
+}
+
+main {
+  width: 90%;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+footer {
+  position: relative;
+  font-weight: bold;
+  font-size: 75%;
+  padding: 8px 5%;
+  text-align: center;
+}
+
+body {
+  font-family: "Lato",sans-serif;
+  background-color: #000000;
+  color: #FFFFFF;
+  font-size: 24px;
+  margin: 0px;
+}
+
+blockquote {
+  margin-bottom: 0;
+}
+cite {
+  padding-bottom: 1rem;
+  display: block;
+}
+
+#banner {
+  position: relative;
+  height: 30rem;
+  background-image: url('/static/index/images/mike-tarpey-childhood-beach.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: right center;
+}
+.intro {
+  padding-top: 10rem;
+  text-align: center;
+  font-size: 8rem;
+  margin: 0;
+}
+@media only screen and (max-width: 720px) {
+  .intro {
+    padding-top: 20rem;
+    font-size: 4rem;
+  }
+}
+
+p {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.bold_warning {
+  color: #ffa0e1;
+}
+
+img {
+  width: auto ;
+  max-width: 100% ;
+  height: auto ;
+}
+
+/* frontpage */
+/* clamp is min, pref, max. equivalent to min(max(x,y),z). */
+hr {
+  margin: 5px;
+}
+
+a.small-nav-link {
+  color: #FFFFFF;
+  text-decoration: none;
+  margin: 3px;
+  padding: 8px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #FFFFFF;
+  font-family: "Lato",sans-serif;
+  display: inline-block;
+}
+
+a.small-nav-link:hover, a.big-nav-link:hover {
+  color: #000000;
+  background: #FFFFFF;
+}
+
+a.inline { background-color: #000000;}
+a.inline:link {color: #66d9ff;}        
+a.inline:visited {color: #ffe066;}
+a.inline:hover {color: #99e6ff;}        
+a.inline:active {color: #99e6ff;}
+
+.center { text-align: center; }
+/* nav colors */
+.index { background-color:#7f2626; }
+.mildredleague { background-color: #7f6126; }
+.haveyouseenx { background-color:#617f26; }
+.timecapsule { background-color:#267f26; }
+.ddr { background-color:#267f61; }
+.autobracket { background-color:#26617f; }
+.links { background-color:#26267f; }
+.colors { background-color:#61267f; }
+.login { background-color:#7f2661; }
+.email { background-color:#444444; }
+.github { background-color:#000000; }
+.discord { background-color:#7289da; }
+.twitch { background-color:#6441a5; }
+.instagram { background-color:#C13584 }
+.specs { background-color:#eda920 }
+.twitter { background-color:#55acee; }
+.youtube { background-color:#cd201f; }
+.tumblr { background-color:#33445d }
+.steam { background-color:#1b2838 }
+
+/* form elements, like in haveyouseenx and autobracket */
+form {
+  display: block;
+  margin-block-end: 0em;
+  line-height: 130%;
+}
+form section {
+  padding-bottom: 10px;
+}
+
+.admin-form {
+  display: inline-block;
+  width: 10em;
+}
+
+input {
+  font-size: 100%;
+  border-radius: 0px;
+}
+input[type=radio] {
+  display: inline;
+}
+
+button {
+  font-size: 100%;
+  background-color: #FFFFFF;
+  transition-duration: 0s;
+}
+
+select {
+  font-size: 100%;
+}
+
+button:hover {background-color: #99e6ff;}
+
+/* table elements, like in haveyouseenx */
+table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 80%;
+  text-align: center;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+th {
+  background-color: #FFFFFF;
+  color: #000000;
+  padding: 8px;
+}
+
+td {
+  padding: 8px;
+}
+
+/* list elements, like in mildredleague */
+ul, ol {
+  margin-block-start: 0.5em;
+  margin-block-end: 0.5em;
+}
+
+.lettered_list {
+  list-style-type: upper-latin;
+}
+
+/*landing page elements*/
+.title-header {
+  word-wrap: break-word;
+}
+
+.nav-container {
+  width: 90%;
+  padding-left: 12px;
+  padding-right: 12px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.big-nav {
+  flex: 50%;
+  max-width: 50%;
+  position: relative;
+}
+
+a.big-nav-link {
+  height: 4rem;
+  width: 80%;
+  color: #FFFFFF;
+  text-decoration: none;
+  margin: 3px;
+  padding: 8px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #FFFFFF;
+  font-family: "Lato",sans-serif;
+  display: inline-block;
+}
+
+.big-nav-text {
+  height: 100%;
+  text-align: center;
+  display: flex;
+  justify-content: center; /* align horizontal */
+  align-items: center; /* align vertical */
+}
+
+.section-header {
+  text-align: center;
+}
