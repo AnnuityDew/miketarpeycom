@@ -1,3 +1,4 @@
+/*
 export type ChildImageSharp = {
   childImageSharp: {
     fluid: {
@@ -12,3 +13,4 @@ export type ChildImageSharp = {
     }
   }
 }
+*/

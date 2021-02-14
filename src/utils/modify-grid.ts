@@ -1,4 +1,4 @@
-import { ChildImageSharp } from "../types"
+/*import { ChildImageSharp } from "../types"
 
 export interface IGridItem {
   slug: string
@@ -30,5 +30,6 @@ function modifyGrid(
  *
  * const modifyGrid = (data) => filterBySlug(data, ["/about"])
  */
-
+/*
 export default modifyGrid
+*/
