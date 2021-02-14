@@ -14,8 +14,8 @@ const Header = ({ bgColor }: HeaderProps) => {
       query {
         file(relativePath: { eq: "mike-tarpey-headshot-20200427.jpg" }) {
           childImageSharp {
-            fluid(maxWidth: 1000) {
-              ...GatsbyImageSharpFluid_withWebp
+            fluid(maxWidth: 500) {
+              ...GatsbyImageSharpFluid_noBase64
             }
           }
         }
