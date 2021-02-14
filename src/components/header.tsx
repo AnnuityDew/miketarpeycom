@@ -60,7 +60,7 @@ const Header = ({ bgColor }: HeaderProps) => {
         aria-label={`${title}, Back to Home`}
         sx={{ width: ["150px", "150px", "150px", "100%", "100%"] }}
       >
-        <Img fluid={headshot.file.childImageSharp.fluid}></Img>
+        <Img fluid={headshot.file.childImageSharp.fluid} loading="eager"></Img>
       </Link>
       <Navigation bgColor={bgColor} />
     </header>
