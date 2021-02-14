@@ -26,8 +26,7 @@ jobs:
       - run: yarn install
       - run: yarn lint
       - run: yarn test
-      - run: gatsby --version
-      - run: gatsby build
+      - run: yarn build
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
