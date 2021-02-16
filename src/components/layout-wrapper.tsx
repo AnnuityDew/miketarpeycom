@@ -7,14 +7,13 @@ const LayoutWrapper = ({ children }: LayoutWrapperProps) => (
   <div
     sx={{
       display: `grid`,
-      gridTemplateColumns: (t: any): any => [
-        "1fr",
-        "1fr",
-        "1fr",
-        "250px auto",
-        "250px auto",
+      gridTemplateColumns: [
+        "[header] 1fr",
+        "[header] 1fr",
+        "[header] 1fr",
+        "[header] 250px [full] auto",
+        "[header] 250px [full] auto",
       ],
-      fontSize: ["1.5rem", "1.5rem", "1.5rem", "1.5rem", "1.5rem"],
     }}
   >
     {children}

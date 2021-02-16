@@ -4,6 +4,7 @@ import React from "react"
 import { Link } from "gatsby"
 import useSiteMetadata from "../hooks/use-site-metadata"
 import useNavMetadata from "../hooks/use-nav-metadata"
+import { OutboundLink } from "gatsby-plugin-google-gtag"
 
 const ListLink = props => <Link to={props.to}>{props.children}</Link>
 
@@ -33,7 +34,20 @@ const Navigation = ({ bgColor }: { bgColor: string }) => {
           </li>
         ))}
         <li>
-          <a href="https://miketarpey.medium.com">Blog</a>
+          <OutboundLink
+            style={{ marginRight: `1rem` }}
+            href="https://tarpey.dev"
+          >
+            apps (tarpey.dev)
+          </OutboundLink>
+        </li>
+        <li>
+          <OutboundLink
+            style={{ marginRight: `1rem` }}
+            href="https://miketarpey.medium.com"
+          >
+            blog (medium.com)
+          </OutboundLink>
         </li>
       </ul>
     </nav>

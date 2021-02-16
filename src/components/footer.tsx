@@ -30,15 +30,6 @@ const Footer = ({ bgColor }: { bgColor: string }) => {
         Made at various points in time from 2006-{new Date().getFullYear()} by{" "}
         {siteTitle}.
       </div>
-      <div>
-        <a href="https://github.com/LekoArts/gatsby-themes/tree/master/themes/gatsby-theme-jodie">
-          Theme
-        </a>
-        {` `}
-        by
-        {` `}
-        <a href="https://www.lekoarts.de/en">LekoArts</a>
-      </div>
     </footer>
   )
 }

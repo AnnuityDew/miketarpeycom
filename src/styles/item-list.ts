@@ -1,4 +1,4 @@
-export const itemListWrapperStyles = {
+export const contentWrapperStyles = {
   ".item-list": {
     display: `grid`,
     gridAutoRows: `auto`,

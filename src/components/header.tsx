@@ -35,6 +35,7 @@ const Header = ({ bgColor }: HeaderProps) => {
         padding: ["0px", "0px", "0px", "0px", "0px"],
         flexDirection: [`row`, `row`, `row`, `column`],
         alignItems: [`center`, `center`, `center`, `flex-start`],
+        fontSize: ["1.2rem", "1.2rem", "1.5rem", "1.5rem", "1.5rem"],
         justifyContent: [
           `space-between`,
           `space-between`,
@@ -60,7 +61,11 @@ const Header = ({ bgColor }: HeaderProps) => {
         aria-label={`${title}, Back to Home`}
         sx={{ width: ["150px", "150px", "150px", "100%", "100%"] }}
       >
-        <Img fluid={headshot.file.childImageSharp.fluid} fadeIn={false} loading="eager"></Img>
+        <Img
+          fluid={headshot.file.childImageSharp.fluid}
+          fadeIn={false}
+          loading="eager"
+        ></Img>
       </Link>
       <Navigation bgColor={bgColor} />
     </header>

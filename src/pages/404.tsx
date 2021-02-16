@@ -1,7 +1,7 @@
 import React from "react"
 import Layout from "../components/layout"
 
-export default function About() {
+export default function Error404() {
   return (
     <Layout>
       <section
@@ -9,7 +9,7 @@ export default function About() {
           padding: ["32px"],
         }}
       >
-        <p>404! This page doesn't exist. But I want to see if this works...</p>
+        <p>404! This page doesn't exist.</p>
       </section>
     </Layout>
   )
