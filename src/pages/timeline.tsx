@@ -3,26 +3,29 @@ import { jsx } from "theme-ui"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import ContentWrapper from "../components/content-wrapper"
-import BackgroundImage from "gatsby-background-image"
-import { OutboundLink } from "gatsby-plugin-google-gtag"
-
+import { OutboundContentCard } from "../components/content-cards"
 
 export default function Timeline({ data }) {
   return (
     <Layout>
-      <ContentWrapper gridType={["1fr", "1fr", "1fr", "1fr", "1fr"]} minItemHeight={"100vh"}>
-        <BackgroundImage
-            Tag="section"
-            fluid={data.actuary.childImageSharp.fluid}
-          >
-          <h2>page under construction!</h2>
-          <span>
-            For now, check out the mini web apps I've created on my other site.
-          </span>
-          <OutboundLink href="https://tarpey.dev/">
-            <sl-button class="link-button">visit tarpey.dev</sl-button>
-          </OutboundLink>
-        </BackgroundImage>
+      <ContentWrapper
+        gridType={["1fr", "1fr", "1fr", "1fr", "1fr"]}
+        minSectionHeight={"100vh"}
+      >
+        <OutboundContentCard
+          contentSectionHeight="100vh"
+          contentGridTemplateRows="1.2fr 0.6fr 1.2fr"
+          contentName="page under construction!"
+          contentInfo="For now, check out the mini web apps I've created on my other site."
+          contentData={[
+            {
+              labelData: "visit tarpey.dev",
+              linkData: "https://tarpey.dev/",
+              sizeData: "large",
+            },
+          ]}
+          imageData={data.actuary.childImageSharp.fluid}
+        />
       </ContentWrapper>
     </Layout>
   )

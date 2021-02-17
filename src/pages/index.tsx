@@ -1,68 +1,63 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui"
-import { Link, graphql } from "gatsby"
+import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import ContentWrapper from "../components/content-wrapper"
-import BackgroundImage from "gatsby-background-image"
 import useNavMetadata from "../hooks/use-nav-metadata"
-import { OutboundLink } from "gatsby-plugin-google-gtag"
-
+import {
+  FrontpageInternalCard,
+  FrontpageOutboundCard,
+} from "../components/content-cards"
 
 export default function Home({ data }) {
   const { navMetadata } = useNavMetadata()
   return (
     <Layout>
-      <ContentWrapper gridType={["1fr", "1fr", "1fr", "1fr", "1fr"]} minItemHeight={"30vh"}>
-        <Link to={navMetadata[1]["slug"]}>
-          <BackgroundImage
-            Tag="section"
-            fluid={data.about.childImageSharp.fluid}
-          >
-            <h1 className="home-click">about</h1>
-          </BackgroundImage>
-        </Link>
-        <Link to={navMetadata[2]["slug"]}>
-          <BackgroundImage
-            Tag="section"
-            fluid={data.timeline.childImageSharp.fluid}
-          >
-            <h1 className="home-click">timeline</h1>
-          </BackgroundImage>
-        </Link>
-        <Link to={navMetadata[3]["slug"]}>
-          <BackgroundImage
-            Tag="section"
-            fluid={data.friends.childImageSharp.fluid}
-          >
-            <h1 className="home-click">friends</h1>
-          </BackgroundImage>
-        </Link>
-        <OutboundLink href="https://tarpey.dev">
-          <BackgroundImage
-            Tag="section"
-            fluid={data.apps.childImageSharp.fluid}
-          >
-            <h1 className="home-click">apps</h1>
-            <h3 className="home-click">(tarpey.dev)</h3>
-          </BackgroundImage>
-        </OutboundLink>
-        <OutboundLink href="https://miketarpey.medium.com">
-          <BackgroundImage
-            Tag="section"
-            fluid={data.blog.childImageSharp.fluid}
-          >
-            <h1 className="home-click">blog</h1>
-            <h3 className="home-click">(medium.com)</h3>
-          </BackgroundImage>
-        </OutboundLink>
-        <Link to={navMetadata[4]["slug"]}>
-          <BackgroundImage
-            Tag="section"
-            fluid={data.credits.childImageSharp.fluid}
-          >
-            <h1 className="home-click">credits</h1>
-          </BackgroundImage>
-        </Link>
+      <ContentWrapper gridType={["1fr", "1fr", "1fr", "1fr", "1fr"]}>
+        <FrontpageInternalCard
+          contentSectionHeight="30vh"
+          contentGridTemplateRows="1fr"
+          labelData="about"
+          linkData={navMetadata[1]["slug"]}
+          imageData={data.about.childImageSharp.fluid}
+        />
+        <FrontpageInternalCard
+          contentSectionHeight="30vh"
+          contentGridTemplateRows="1fr"
+          labelData="timeline"
+          linkData={navMetadata[2]["slug"]}
+          imageData={data.timeline.childImageSharp.fluid}
+        />
+        <FrontpageInternalCard
+          contentSectionHeight="30vh"
+          contentGridTemplateRows="1fr"
+          labelData="friends"
+          linkData={navMetadata[3]["slug"]}
+          imageData={data.friends.childImageSharp.fluid}
+        />
+        <FrontpageOutboundCard
+          contentSectionHeight="30vh"
+          contentGridTemplateRows="1fr"
+          labelData="apps"
+          subLabelData="(tarpey.dev)"
+          linkData="https://tarpey.dev"
+          imageData={data.apps.childImageSharp.fluid}
+        />
+        <FrontpageOutboundCard
+          contentSectionHeight="30vh"
+          contentGridTemplateRows="1fr"
+          labelData="blog"
+          subLabelData="(medium.com)"
+          linkData="https://miketarpey.medium.com/"
+          imageData={data.blog.childImageSharp.fluid}
+        />
+        <FrontpageInternalCard
+          contentSectionHeight="30vh"
+          contentGridTemplateRows="1fr"
+          labelData="credits"
+          linkData={navMetadata[4]["slug"]}
+          imageData={data.credits.childImageSharp.fluid}
+        />
       </ContentWrapper>
     </Layout>
   )
