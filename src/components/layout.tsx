@@ -31,6 +31,7 @@ const Layout = ({ children, bgColor = `#000000` }: LayoutProps) => (
               color: "#FFCCCC",
             },
           },
+          color: "#FFFFFF",
         }}
       >
         {children}
