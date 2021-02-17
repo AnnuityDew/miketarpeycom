@@ -1,6 +1,5 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui"
-import React from "react"
 
 const Footer = ({ bgColor }: { bgColor: string }) => {
   const siteTitle = "mike tarpey"
