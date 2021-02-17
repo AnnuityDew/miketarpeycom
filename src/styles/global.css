@@ -8,8 +8,6 @@
 html {
   font-family: "Lato", sans-serif;
   -webkit-text-size-adjust: 100%;
-  color: #ffffff;
-  background-color: #000000;
 }
 
 img {
@@ -31,6 +29,7 @@ h3.home-click {
 }
 
 h2 {
+  font-size: 4vh;
   margin: 0px;
   font-weight: 700;
   text-align: center;
@@ -46,31 +45,50 @@ section li {
   margin: 1rem 0;
 }
 
-section span {
-  margin: 0 40px;
-  text-align: center;
-}
-
-/* shoelace */
-.link-button::part(base) {
+/* shoelace light button */
+.light-button::part(base) {
   background: rgba(255, 255, 255, 0.1);
   border: solid 1px white;
   font-weight: 700;
 }
 
-.link-button::part(base):hover {
+.light-button::part(base):hover {
   background: rgba(255, 255, 255, 0.4);
 }
 
-.link-button::part(base):active {
+.light-button::part(base):active {
   background: rgba(255, 255, 255, 0.2);
 }
 
-.link-button::part(base):focus {
+.light-button::part(base):focus {
   box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.33);
 }
 
-.link-button::part(label) {
+.light-button::part(label) {
   font-family: "Poppins", sans-serif;
   color: white;
+}
+
+/* shoelace dark button */
+.dark-button::part(base) {
+  background: rgba(0, 0, 0, 0.1);
+  border: solid 1px black;
+  font-weight: 700;
+}
+
+.dark-button::part(base):hover {
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.dark-button::part(base):active {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.dark-button::part(base):focus {
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.33);
+}
+
+.dark-button::part(label) {
+  font-family: "Poppins", sans-serif;
+  color: black;
 }
