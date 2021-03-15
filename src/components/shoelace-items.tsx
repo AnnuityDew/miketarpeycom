@@ -9,10 +9,10 @@ import { Link } from "gatsby"
 /*customElements.define("sl-button", SlButton)*/
 
 type ButtonProps = {
-  label: string
-  url: string
-  slSize: string
-  className: string
+  label: string;
+  url: string;
+  slSize: string;
+  className: string;
 }
 
 /*const ShoelaceButton = wrapCustomElement("sl-button")*/

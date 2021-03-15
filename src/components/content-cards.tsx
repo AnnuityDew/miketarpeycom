@@ -10,37 +10,37 @@ import {
 } from "./shoelace-items"
 
 type contentDataType = {
-  labelData: string
-  linkData: string
-  sizeData: string
+  labelData: string;
+  linkData: string;
+  sizeData: string;
 }[]
 
 type ButtonProps = {
-  contentSectionHeight: string
-  contentGridTemplateRows: string
-  contentName: string
-  contentInfo: string
-  contentData: contentDataType
-  imageData: Object
+  contentSectionHeight: string;
+  contentGridTemplateRows: string;
+  contentName: string;
+  contentInfo: string;
+  contentData: contentDataType;
+  imageData: Object;
 }
 
 type FrontpageProps = {
-  contentSectionHeight: string
-  contentGridTemplateRows: string
-  labelData: string
-  subLabelData: string
-  linkData: string
-  imageData: Object
+  contentSectionHeight: string;
+  contentGridTemplateRows: string;
+  labelData: string;
+  subLabelData: string;
+  linkData: string;
+  imageData: Object;
 }
 
 type CreditCardProps = {
-  contentName: string
-  contentInfo: string
-  contentData: contentDataType
-  fontColor: string
-  bgColor: string
-  borderColor: string
-  buttonClass: string
+  contentName: string;
+  contentInfo: string;
+  contentData: contentDataType;
+  fontColor: string;
+  bgColor: string;
+  borderColor: string;
+  buttonClass: string;
 }
 
 export const InternalContentCard = ({
