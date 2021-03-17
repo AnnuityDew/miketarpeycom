@@ -11,8 +11,7 @@ module.exports = {
     siteUrl: "https://miketarpey.com",
     siteDescription: "Mike Tarpey, a pretty ordinary citizen of planet Earth. Credentialed actuary, aspiring programmer, casual Twitch streamer, UConn alum.",
     siteLanguage: "en-US",
-    siteImage: "/mike-tarpey-headshot-20200427.jpg",
-    author: "mike tarpey",
+    siteImage: "/mike-tarpey-childhood-beach-og.jpg",
     navMetadata: [
       { name: "home", slug: "/" },
       { name: "about", slug: "/about" },

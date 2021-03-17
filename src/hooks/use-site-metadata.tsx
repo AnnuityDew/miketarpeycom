@@ -26,7 +26,6 @@ const useSiteMetadata = () => {
           siteDescription
           siteLanguage
           siteImage
-          author
         }
       }
     }

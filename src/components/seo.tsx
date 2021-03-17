@@ -2,12 +2,12 @@ import React from "react"
 import { Helmet } from "react-helmet"
 import useSiteMetadata from "../hooks/use-site-metadata"
 
-type Props = {
-  title?: string
-  description?: string
-  pathname?: string
-  image?: string
-  children?: React.ReactNode
+interface HelmetProps {
+  title?: string;
+  description?: string;
+  pathname?: string;
+  image?: string;
+  children?: React.ReactNode;
 }
 
 const SEO = ({
@@ -16,7 +16,7 @@ const SEO = ({
   pathname = ``,
   image = ``,
   children = null,
-}: Props) => {
+}: HelmetProps) => {
   const site = useSiteMetadata()
 
   const {
@@ -26,7 +26,6 @@ const SEO = ({
     siteDescription: defaultDescription,
     siteLanguage,
     siteImage: defaultImage,
-    author,
   } = site
 
   const seo = {
@@ -36,33 +35,28 @@ const SEO = ({
     image: `${siteUrl}${image || defaultImage}`,
   }
   return (
-    <Helmet
-      title={title}
-      defaultTitle={defaultTitle}
-      titleTemplate={`%s | ${siteTitle}`}
-    >
+    <Helmet>
       <html lang={siteLanguage} />
+      <title>{title}</title>
+      <meta name="author" content="Mike Tarpey" />
       <meta name="description" content={seo.description} />
-            
-      <link
-        rel="icon"
-        type="image/png"
-        sizes="32x32"
-        href="/favicon-32x32.png"
-      />
-            
-      <link
-        rel="icon"
-        type="image/png"
-        sizes="16x16"
-        href="/favicon-16x16.png"
-      />
-            
-      <link
-        rel="apple-touch-icon"
-        sizes="180x180"
-        href="/apple-touch-icon.png"
-      />
+      <meta name="viewport" content="initial-scale=1.0, width=device-width" />      
+      <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+      <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+      <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+      <link rel="manifest" href="/site.webmanifest" />
+      <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#7a8cc0" />
+      <meta name="msapplication-TileColor" content="#7a8cc0" />
+      <meta name="theme-color" content="#7a8cc0" />
+
+      <meta property="og:title" content={title} />
+      <meta property="og:description" content={description} />
+      <meta property="og:url" content={seo.url} />
+      <meta property="og:image" content={seo.image} />
+      <meta name="twitter:image" content={seo.image} />
+      <meta property="og:type" content="website" />
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta property="og:site_name" content="tarpey's apps" />
       {children}
     </Helmet>
   )
