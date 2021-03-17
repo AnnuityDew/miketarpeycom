@@ -25,6 +25,13 @@ My personal website.
 * TypeScript / JavaScript
 
 ## References
+* Important SEO/site-checking tools!
+  * [Favicon Generator](https://realfavicongenerator.net/)
+  * [Facebook Crawler](https://developers.facebook.com/tools/debug)
+  * [Twitter Card Validator](https://cards-dev.twitter.com/validator)
+  * [LinkedIn Post Inspector](https://www.linkedin.com/post-inspector/)
+  * [Google Search Console](https://search.google.com/search-console/about)
+  * [Bing Webmaster Tools](https://www.bing.com/webmasters/about)
 * [Deploying to Firebase Hosting](https://www.gatsbyjs.com/docs/how-to/previews-deploys-hosting/deploying-to-firebase/)
 * [Connect a custom domain to Firebase](https://firebase.google.com/docs/hosting/custom-domain)
 * [Configure Firebase Hosting behavior](https://firebase.google.com/docs/hosting/full-config)

@@ -7,6 +7,7 @@
   "scripts": {
     "dev": "gatsby develop",
     "build": "gatsby build",
+    "deploy": "firebase deploy",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
     "start": "npm run develop",
     "serve": "gatsby serve",

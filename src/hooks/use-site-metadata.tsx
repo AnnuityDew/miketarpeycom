@@ -1,16 +1,16 @@
 import { graphql, useStaticQuery } from "gatsby"
 
-type Props = {
+interface Props {
   site: {
     siteMetadata: {
-      siteTitle: string
-      siteTitleAlt: string
-      siteUrl: string
-      siteDescription: string
-      siteLanguage: string
-      siteImage: string
-      author: string
-      [key: string]: unknown
+      siteTitle: string;
+      siteTitleAlt: string;
+      siteUrl: string;
+      siteDescription: string;
+      siteLanguage: string;
+      siteImage: string;
+      author: string;
+      [key: string]: unknown;
     }
   }
 }

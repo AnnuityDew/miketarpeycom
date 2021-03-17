@@ -37,7 +37,7 @@ const SEO = ({
   return (
     <Helmet>
       <html lang={siteLanguage} />
-      <title>{title}</title>
+      <title>{siteTitle}</title>
       <meta name="author" content="Mike Tarpey" />
       <meta name="description" content={seo.description} />
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />      
@@ -56,7 +56,7 @@ const SEO = ({
       <meta name="twitter:image" content={seo.image} />
       <meta property="og:type" content="website" />
       <meta name="twitter:card" content="summary_large_image" />
-      <meta property="og:site_name" content="tarpey's apps" />
+      <meta property="og:site_name" content="mike tarpey" />
       {children}
     </Helmet>
   )
