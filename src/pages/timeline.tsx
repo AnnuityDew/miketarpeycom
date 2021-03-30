@@ -7,9 +7,7 @@ import { OutboundContentCard } from "../components/content-cards"
 export default function Timeline() {
   return (
     <Layout>
-      <ContentWrapper
-        wrapperGridColumns={["1fr", "1fr", "1fr", "1fr", "1fr"]}
-      >
+      <ContentWrapper wrapperGridColumns={["1fr", "1fr", "1fr", "1fr", "1fr"]}>
         <OutboundContentCard
           contentSectionHeight="100vh"
           contentGridTemplateRows="1.2fr 0.6fr 1.2fr"
@@ -26,5 +24,5 @@ export default function Timeline() {
         />
       </ContentWrapper>
     </Layout>
-  );
+  )
 }

@@ -41,32 +41,20 @@ export const StyledButton = styled.button`
   }}
 `
 
-export const InternalShoelaceButton = ({
-  label,
-  url,
-  kind,
-}: ButtonProps) => (
+export const InternalShoelaceButton = ({ label, url, kind }: ButtonProps) => (
   /* outer div allows us to pad and align */
   <div>
     <Link to={url}>
-      <StyledButton kind={kind}>
-        {label}
-      </StyledButton>
+      <StyledButton kind={kind}>{label}</StyledButton>
     </Link>
   </div>
 )
 
-export const OutboundShoelaceButton = ({
-  label,
-  url,
-  kind,
-}: ButtonProps) => (
+export const OutboundShoelaceButton = ({ label, url, kind }: ButtonProps) => (
   /* outer div allows us to pad and align */
   <div>
     <OutboundLink href={url}>
-      <StyledButton kind={kind}>
-        {label}
-      </StyledButton>
+      <StyledButton kind={kind}>{label}</StyledButton>
     </OutboundLink>
   </div>
 )

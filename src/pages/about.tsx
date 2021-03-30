@@ -4,7 +4,7 @@ import Layout from "../components/layout"
 import ContentWrapper from "../components/content-wrapper"
 import { OutboundContentCard } from "../components/content-cards"
 
-export default function About({ data }) {
+export default function About() {
   return (
     <Layout>
       <ContentWrapper wrapperGridColumns={["1fr", "1fr", "1fr", "1fr", "1fr"]}>
@@ -25,5 +25,5 @@ export default function About({ data }) {
         />
       </ContentWrapper>
     </Layout>
-  );
+  )
 }
