@@ -25,7 +25,7 @@ export default function Friends({ data }) {
               sizeData: "large",
             },
           ]}
-          imageData={data.trevor.childImageSharp.fluid}
+          imageData={data.trevor.childImageSharp.gatsbyImageData}
         />
         <OutboundContentCard
           contentSectionHeight="80vh"
@@ -59,28 +59,23 @@ export default function Friends({ data }) {
               sizeData: "medium",
             },
           ]}
-          imageData={data.cc.childImageSharp.fluid}
+          imageData={data.cc.childImageSharp.gatsbyImageData}
         />
       </ContentWrapper>
     </Layout>
-  )
+  );
 }
 
-export const query = graphql`
-  query getFriendPictures {
-    trevor: file(relativePath: { eq: "trevor-wentt-freshness.jpg" }) {
-      childImageSharp {
-        fluid(quality: 95, maxWidth: 1800) {
-          ...GatsbyImageSharpFluid_withWebp_noBase64
-        }
-      }
-    }
-    cc: file(relativePath: { eq: "cc-crown-grab.jpg" }) {
-      childImageSharp {
-        fluid(quality: 95, maxWidth: 1800) {
-          ...GatsbyImageSharpFluid_withWebp_noBase64
-        }
-      }
+export const query = graphql`query getFriendPictures {
+  trevor: file(relativePath: {eq: "trevor-wentt-freshness.jpg"}) {
+    childImageSharp {
+      gatsbyImageData(quality: 95, placeholder: NONE, layout: FULL_WIDTH)
     }
   }
+  cc: file(relativePath: {eq: "cc-crown-grab.jpg"}) {
+    childImageSharp {
+      gatsbyImageData(quality: 95, placeholder: NONE, layout: FULL_WIDTH)
+    }
+  }
+}
 `

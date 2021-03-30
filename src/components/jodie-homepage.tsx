@@ -1,6 +1,6 @@
 import React from "react"
 import { PageProps } from "gatsby"
-import Img from "gatsby-image"
+import { GatsbyImage } from "gatsby-plugin-image";
 import Layout from "../components/layout"
 import locales from "../locales"
 import GridItem from "../components/grid-item"
@@ -66,7 +66,7 @@ const Homepage: React.FC<PageProps<DataProps>> = ({
                 sx={itemStyles}
                 data-testid={item.title}
               >
-                <Img fluid={item.cover.childImageSharp.fluid} />
+                <GatsbyImage image={item.cover.childImageSharp.gatsbyImageData} />
                 <span>{item.title}</span>
               </GridItem>
             ))
@@ -79,7 +79,7 @@ const Homepage: React.FC<PageProps<DataProps>> = ({
         </div>
       </div>
     </Layout>
-  )
+  );
 }
 
 export default Homepage

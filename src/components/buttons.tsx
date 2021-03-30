@@ -1,6 +1,3 @@
-import "@shoelace-style/shoelace/dist/shoelace/shoelace.css"
-import wrapCustomElement from "@shoelace-style/react-wrapper"
-/*import { SlButton } from "@shoelace-style/shoelace"*/
 import { OutboundLink } from "gatsby-plugin-google-gtag"
 import React from "react"
 import { Link } from "gatsby"
@@ -9,10 +6,10 @@ import { Link } from "gatsby"
 /*customElements.define("sl-button", SlButton)*/
 
 type ButtonProps = {
-  label: string;
-  url: string;
-  slSize: string;
-  className: string;
+  label: string
+  url: string
+  slSize: string
+  className: string
 }
 
 /*const ShoelaceButton = wrapCustomElement("sl-button")*/
@@ -26,9 +23,9 @@ export const InternalShoelaceButton = ({
   /* outer div allows us to pad and align */
   <div>
     <Link to={url}>
-      <sl-button size={slSize} class={className}>
+      <button size={slSize} class={className}>
         {label}
-      </sl-button>
+      </button>
     </Link>
   </div>
 )
@@ -42,9 +39,9 @@ export const OutboundShoelaceButton = ({
   /* outer div allows us to pad and align */
   <div>
     <OutboundLink href={url}>
-      <sl-button size={slSize} class={className}>
+      <button size={slSize} class={className}>
         {label}
-      </sl-button>
+      </button>
     </OutboundLink>
   </div>
 )

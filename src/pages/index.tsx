@@ -19,21 +19,21 @@ export default function Home({ data }) {
           contentGridTemplateRows="1fr"
           labelData="about"
           linkData={navMetadata[1]["slug"]}
-          imageData={data.about.childImageSharp.fluid}
+          imageData={data.about.childImageSharp.gatsbyImageData}
         />
         <FrontpageInternalCard
           contentSectionHeight="30vh"
           contentGridTemplateRows="1fr"
           labelData="timeline"
           linkData={navMetadata[2]["slug"]}
-          imageData={data.timeline.childImageSharp.fluid}
+          imageData={data.timeline.childImageSharp.gatsbyImageData}
         />
         <FrontpageInternalCard
           contentSectionHeight="30vh"
           contentGridTemplateRows="1fr"
           labelData="friends"
           linkData={navMetadata[3]["slug"]}
-          imageData={data.friends.childImageSharp.fluid}
+          imageData={data.friends.childImageSharp.gatsbyImageData}
         />
         <FrontpageOutboundCard
           contentSectionHeight="30vh"
@@ -41,7 +41,7 @@ export default function Home({ data }) {
           labelData="apps"
           subLabelData="(tarpey.dev)"
           linkData="https://tarpey.dev"
-          imageData={data.apps.childImageSharp.fluid}
+          imageData={data.apps.childImageSharp.gatsbyImageData}
         />
         <FrontpageOutboundCard
           contentSectionHeight="30vh"
@@ -49,63 +49,50 @@ export default function Home({ data }) {
           labelData="blog"
           subLabelData="(medium.com)"
           linkData="https://miketarpey.medium.com/"
-          imageData={data.blog.childImageSharp.fluid}
+          imageData={data.blog.childImageSharp.gatsbyImageData}
         />
         <FrontpageInternalCard
           contentSectionHeight="30vh"
           contentGridTemplateRows="1fr"
           labelData="credits"
           linkData={navMetadata[4]["slug"]}
-          imageData={data.credits.childImageSharp.fluid}
+          imageData={data.credits.childImageSharp.gatsbyImageData}
         />
       </ContentWrapper>
     </Layout>
-  )
+  );
 }
 
-export const query = graphql`
-  query getIndexPictures {
-    about: file(relativePath: { eq: "mike-tarpey-at-pax.jpg" }) {
-      childImageSharp {
-        fluid(quality: 95, maxWidth: 1800) {
-          ...GatsbyImageSharpFluid_withWebp_noBase64
-        }
-      }
-    }
-    timeline: file(relativePath: { eq: "mike-tarpey-childhood-beach.jpg" }) {
-      childImageSharp {
-        fluid(quality: 95, maxWidth: 1800) {
-          ...GatsbyImageSharpFluid_withWebp_noBase64
-        }
-      }
-    }
-    friends: file(relativePath: { eq: "dew-uconn-crew.jpg" }) {
-      childImageSharp {
-        fluid(quality: 95, maxWidth: 1800) {
-          ...GatsbyImageSharpFluid_withWebp_noBase64
-        }
-      }
-    }
-    apps: file(relativePath: { eq: "code-screencap-dim.jpg" }) {
-      childImageSharp {
-        fluid(quality: 95, maxWidth: 1800) {
-          ...GatsbyImageSharpFluid_withWebp_noBase64
-        }
-      }
-    }
-    blog: file(relativePath: { eq: "cat-blogger.jpg" }) {
-      childImageSharp {
-        fluid(quality: 95, maxWidth: 1800) {
-          ...GatsbyImageSharpFluid_withWebp_noBase64
-        }
-      }
-    }
-    credits: file(relativePath: { eq: "baxter-bravo-stack.jpg" }) {
-      childImageSharp {
-        fluid(quality: 95, maxWidth: 1800) {
-          ...GatsbyImageSharpFluid_withWebp_noBase64
-        }
-      }
+export const query = graphql`query getIndexPictures {
+  about: file(relativePath: {eq: "mike-tarpey-at-pax.jpg"}) {
+    childImageSharp {
+      gatsbyImageData(quality: 95, placeholder: NONE, layout: FULL_WIDTH)
     }
   }
+  timeline: file(relativePath: {eq: "mike-tarpey-childhood-beach.jpg"}) {
+    childImageSharp {
+      gatsbyImageData(quality: 95, placeholder: NONE, layout: FULL_WIDTH)
+    }
+  }
+  friends: file(relativePath: {eq: "dew-uconn-crew.jpg"}) {
+    childImageSharp {
+      gatsbyImageData(quality: 95, placeholder: NONE, layout: FULL_WIDTH)
+    }
+  }
+  apps: file(relativePath: {eq: "code-screencap-dim.jpg"}) {
+    childImageSharp {
+      gatsbyImageData(quality: 95, placeholder: NONE, layout: FULL_WIDTH)
+    }
+  }
+  blog: file(relativePath: {eq: "cat-blogger.jpg"}) {
+    childImageSharp {
+      gatsbyImageData(quality: 95, placeholder: NONE, layout: FULL_WIDTH)
+    }
+  }
+  credits: file(relativePath: {eq: "baxter-bravo-stack.jpg"}) {
+    childImageSharp {
+      gatsbyImageData(quality: 95, placeholder: NONE, layout: FULL_WIDTH)
+    }
+  }
+}
 `

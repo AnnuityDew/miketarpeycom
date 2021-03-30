@@ -1,13 +1,12 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui"
-import "@shoelace-style/shoelace/dist/shoelace/shoelace.css"
 import { Link } from "gatsby"
 import { OutboundLink } from "gatsby-plugin-google-gtag"
 import BackgroundImage from "gatsby-background-image"
 import {
   InternalShoelaceButton,
   OutboundShoelaceButton,
-} from "./shoelace-items"
+} from "./buttons"
 
 type contentDataType = {
   labelData: string;
@@ -51,6 +50,7 @@ export const InternalContentCard = ({
   contentData,
   imageData,
 }: ButtonProps) => {
+  const pluginImage = getImage(imageData);
   return (
     <div
       sx={{
@@ -64,7 +64,7 @@ export const InternalContentCard = ({
         },
       }}
     >
-      <BackgroundImage Tag="section" fluid={imageData}>
+      <BgImage Tag="section" image={plugin}>
         <h2 sx={{ justifySelf: "center", alignSelf: "end" }}>{contentName}</h2>
         <span sx={{ textAlign: "center" }}>{contentInfo}</span>
         {/* loop through array of friend links to add a button for each */}
@@ -89,7 +89,7 @@ export const InternalContentCard = ({
             />
           ))}
         </div>
-      </BackgroundImage>
+      </BgImage>
     </div>
   )
 }

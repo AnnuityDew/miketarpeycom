@@ -24,21 +24,18 @@ export default function Timeline({ data }) {
               sizeData: "large",
             },
           ]}
-          imageData={data.actuary.childImageSharp.fluid}
+          imageData={data.actuary.childImageSharp.gatsbyImageData}
         />
       </ContentWrapper>
     </Layout>
-  )
+  );
 }
 
-export const query = graphql`
-  query getTimelinePictures {
-    actuary: file(relativePath: { eq: "mike-tarpey-richmond-actuary.jpg" }) {
-      childImageSharp {
-        fluid(quality: 95, maxWidth: 1800) {
-          ...GatsbyImageSharpFluid_withWebp_noBase64
-        }
-      }
+export const query = graphql`query getTimelinePictures {
+  actuary: file(relativePath: {eq: "mike-tarpey-richmond-actuary.jpg"}) {
+    childImageSharp {
+      gatsbyImageData(quality: 95, placeholder: NONE, layout: FULL_WIDTH)
     }
   }
+}
 `

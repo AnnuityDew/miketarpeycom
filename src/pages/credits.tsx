@@ -91,14 +91,11 @@ export default function Credits({ data }) {
   )
 }
 
-export const query = graphql`
-  query getCreditsPictures {
-    actuary: file(relativePath: { eq: "mike-tarpey-richmond-actuary.jpg" }) {
-      childImageSharp {
-        fluid(quality: 95, maxWidth: 1800) {
-          ...GatsbyImageSharpFluid_withWebp_noBase64
-        }
-      }
+export const query = graphql`query getCreditsPictures {
+  actuary: file(relativePath: {eq: "mike-tarpey-richmond-actuary.jpg"}) {
+    childImageSharp {
+      gatsbyImageData(quality: 95, placeholder: NONE, layout: FULL_WIDTH)
     }
   }
+}
 `
