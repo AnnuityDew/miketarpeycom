@@ -1,16 +1,14 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui"
-import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import ContentWrapper from "../components/content-wrapper"
 import { OutboundContentCard } from "../components/content-cards"
 
-export default function Friends({ data }) {
+export default function Friends() {
   return (
     <Layout>
       <ContentWrapper
-        gridType={["1fr", "1fr", "1fr", "1fr", "1fr"]}
-        minSectionHeight={"80vh"}
+        wrapperGridColumns={["1fr", "1fr", "1fr", "1fr", "1fr"]}
       >
         <OutboundContentCard
           contentSectionHeight="80vh"
@@ -25,7 +23,7 @@ export default function Friends({ data }) {
               sizeData: "large",
             },
           ]}
-          imageData={data.trevor.childImageSharp.gatsbyImageData}
+          imageData="/pics/trevor-wentt-freshness.jpg"
         />
         <OutboundContentCard
           contentSectionHeight="80vh"
@@ -59,23 +57,9 @@ export default function Friends({ data }) {
               sizeData: "medium",
             },
           ]}
-          imageData={data.cc.childImageSharp.gatsbyImageData}
+          imageData="/pics/cc-crown-grab.jpg"
         />
       </ContentWrapper>
     </Layout>
   );
 }
-
-export const query = graphql`query getFriendPictures {
-  trevor: file(relativePath: {eq: "trevor-wentt-freshness.jpg"}) {
-    childImageSharp {
-      gatsbyImageData(quality: 95, placeholder: NONE, layout: FULL_WIDTH)
-    }
-  }
-  cc: file(relativePath: {eq: "cc-crown-grab.jpg"}) {
-    childImageSharp {
-      gatsbyImageData(quality: 95, placeholder: NONE, layout: FULL_WIDTH)
-    }
-  }
-}
-`

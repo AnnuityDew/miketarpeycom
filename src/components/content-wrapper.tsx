@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui"
 
-type ContentWrapperProps = {
+interface ContentWrapperProps {
   children: React.ReactNode
   wrapperGridColumns: Array<string>
 }

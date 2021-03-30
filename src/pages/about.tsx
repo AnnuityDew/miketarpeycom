@@ -1,6 +1,5 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui"
-import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import ContentWrapper from "../components/content-wrapper"
 import { OutboundContentCard } from "../components/content-cards"
@@ -8,7 +7,7 @@ import { OutboundContentCard } from "../components/content-cards"
 export default function About({ data }) {
   return (
     <Layout>
-      <ContentWrapper gridType={["1fr", "1fr", "1fr", "1fr", "1fr"]}>
+      <ContentWrapper wrapperGridColumns={["1fr", "1fr", "1fr", "1fr", "1fr"]}>
         <OutboundContentCard
           contentSectionHeight="100vh"
           contentGridTemplateRows="1.2fr 0.6fr 1.2fr"
@@ -22,18 +21,9 @@ export default function About({ data }) {
               sizeData: "large",
             },
           ]}
-          imageData={data.actuary.childImageSharp.gatsbyImageData}
+          imageData="/pics/mike-tarpey-richmond-actuary.jpg"
         />
       </ContentWrapper>
     </Layout>
   );
 }
-
-export const query = graphql`query getAboutPictures {
-  actuary: file(relativePath: {eq: "mike-tarpey-richmond-actuary.jpg"}) {
-    childImageSharp {
-      gatsbyImageData(quality: 95, placeholder: NONE, layout: FULL_WIDTH)
-    }
-  }
-}
-`

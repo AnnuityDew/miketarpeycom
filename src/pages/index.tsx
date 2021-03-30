@@ -1,6 +1,5 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui"
-import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import ContentWrapper from "../components/content-wrapper"
 import useNavMetadata from "../hooks/use-nav-metadata"
@@ -13,27 +12,27 @@ export default function Home({ data }) {
   const { navMetadata } = useNavMetadata()
   return (
     <Layout>
-      <ContentWrapper gridType={["1fr", "1fr", "1fr", "1fr", "1fr"]}>
+      <ContentWrapper wrapperGridColumns={["1fr", "1fr", "1fr", "1fr", "1fr"]}>
         <FrontpageInternalCard
           contentSectionHeight="30vh"
           contentGridTemplateRows="1fr"
           labelData="about"
           linkData={navMetadata[1]["slug"]}
-          imageData={data.about.childImageSharp.gatsbyImageData}
+          imageData="/pics/mike-tarpey-at-pax.jpg"
         />
         <FrontpageInternalCard
           contentSectionHeight="30vh"
           contentGridTemplateRows="1fr"
           labelData="timeline"
           linkData={navMetadata[2]["slug"]}
-          imageData={data.timeline.childImageSharp.gatsbyImageData}
+          imageData="/pics/mike-tarpey-childhood-beach.jpg"
         />
         <FrontpageInternalCard
           contentSectionHeight="30vh"
           contentGridTemplateRows="1fr"
           labelData="friends"
           linkData={navMetadata[3]["slug"]}
-          imageData={data.friends.childImageSharp.gatsbyImageData}
+          imageData="/pics/dew-uconn-crew.jpg"
         />
         <FrontpageOutboundCard
           contentSectionHeight="30vh"
@@ -41,7 +40,7 @@ export default function Home({ data }) {
           labelData="apps"
           subLabelData="(tarpey.dev)"
           linkData="https://tarpey.dev"
-          imageData={data.apps.childImageSharp.gatsbyImageData}
+          imageData="/pics/code-screencap-dim.jpg"
         />
         <FrontpageOutboundCard
           contentSectionHeight="30vh"
@@ -49,50 +48,16 @@ export default function Home({ data }) {
           labelData="blog"
           subLabelData="(medium.com)"
           linkData="https://miketarpey.medium.com/"
-          imageData={data.blog.childImageSharp.gatsbyImageData}
+          imageData="/pics/cat-blogger.jpg"
         />
         <FrontpageInternalCard
           contentSectionHeight="30vh"
           contentGridTemplateRows="1fr"
           labelData="credits"
           linkData={navMetadata[4]["slug"]}
-          imageData={data.credits.childImageSharp.gatsbyImageData}
+          imageData="/pics/baxter-bravo-stack.jpg"
         />
       </ContentWrapper>
     </Layout>
   );
 }
-
-export const query = graphql`query getIndexPictures {
-  about: file(relativePath: {eq: "mike-tarpey-at-pax.jpg"}) {
-    childImageSharp {
-      gatsbyImageData(quality: 95, placeholder: NONE, layout: FULL_WIDTH)
-    }
-  }
-  timeline: file(relativePath: {eq: "mike-tarpey-childhood-beach.jpg"}) {
-    childImageSharp {
-      gatsbyImageData(quality: 95, placeholder: NONE, layout: FULL_WIDTH)
-    }
-  }
-  friends: file(relativePath: {eq: "dew-uconn-crew.jpg"}) {
-    childImageSharp {
-      gatsbyImageData(quality: 95, placeholder: NONE, layout: FULL_WIDTH)
-    }
-  }
-  apps: file(relativePath: {eq: "code-screencap-dim.jpg"}) {
-    childImageSharp {
-      gatsbyImageData(quality: 95, placeholder: NONE, layout: FULL_WIDTH)
-    }
-  }
-  blog: file(relativePath: {eq: "cat-blogger.jpg"}) {
-    childImageSharp {
-      gatsbyImageData(quality: 95, placeholder: NONE, layout: FULL_WIDTH)
-    }
-  }
-  credits: file(relativePath: {eq: "baxter-bravo-stack.jpg"}) {
-    childImageSharp {
-      gatsbyImageData(quality: 95, placeholder: NONE, layout: FULL_WIDTH)
-    }
-  }
-}
-`

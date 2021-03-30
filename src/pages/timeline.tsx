@@ -1,16 +1,14 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui"
-import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import ContentWrapper from "../components/content-wrapper"
 import { OutboundContentCard } from "../components/content-cards"
 
-export default function Timeline({ data }) {
+export default function Timeline() {
   return (
     <Layout>
       <ContentWrapper
-        gridType={["1fr", "1fr", "1fr", "1fr", "1fr"]}
-        minSectionHeight={"100vh"}
+        wrapperGridColumns={["1fr", "1fr", "1fr", "1fr", "1fr"]}
       >
         <OutboundContentCard
           contentSectionHeight="100vh"
@@ -24,18 +22,9 @@ export default function Timeline({ data }) {
               sizeData: "large",
             },
           ]}
-          imageData={data.actuary.childImageSharp.gatsbyImageData}
+          imageData="/pics/mike-tarpey-richmond-actuary.jpg"
         />
       </ContentWrapper>
     </Layout>
   );
 }
-
-export const query = graphql`query getTimelinePictures {
-  actuary: file(relativePath: {eq: "mike-tarpey-richmond-actuary.jpg"}) {
-    childImageSharp {
-      gatsbyImageData(quality: 95, placeholder: NONE, layout: FULL_WIDTH)
-    }
-  }
-}
-`
