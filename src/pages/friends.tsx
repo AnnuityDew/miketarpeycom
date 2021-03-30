@@ -1,16 +1,14 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui"
-import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import ContentWrapper from "../components/content-wrapper"
 import { OutboundContentCard } from "../components/content-cards"
 
-export default function Friends({ data }) {
+export default function Friends() {
   return (
     <Layout>
       <ContentWrapper
-        gridType={["1fr", "1fr", "1fr", "1fr", "1fr"]}
-        minSectionHeight={"80vh"}
+        wrapperGridColumns={["1fr", "1fr", "1fr", "1fr", "1fr"]}
       >
         <OutboundContentCard
           contentSectionHeight="80vh"

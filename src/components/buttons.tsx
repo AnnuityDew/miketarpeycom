@@ -18,20 +18,24 @@ export const StyledButton = styled.button`
   padding: 1rem 1rem;
   border-radius: 3px;
   transition: 0.3s;
-  background: rgba(0, 0, 0, 0.4);
-  &:hover {
-    background: rgba(70, 70, 70, 0.8);
-  }
   ${props => {
     if (props.kind === "dark") {
       return `
         color: black;
+        background: rgba(155, 155, 155, 0.4);
         border: 2px solid black;
+        &:hover {
+          background: rgba(155, 155, 155, 1);
+        }
       `
     } else {
       return `
         color: white;
+        background: rgba(0, 0, 0, 0.4);
         border: 2px solid white;
+        &:hover {
+          background: rgba(70, 70, 70, 1);
+        }
       `
     }
   }}

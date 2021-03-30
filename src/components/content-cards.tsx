@@ -1,14 +1,11 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui"
-import { Link, useStaticQuery, graphql } from "gatsby"
+import { Link } from "gatsby"
 import { OutboundLink } from "gatsby-plugin-google-gtag"
-import BackgroundImage from "gatsby-background-image"
 import {
   InternalShoelaceButton,
   OutboundShoelaceButton,
 } from "./buttons"
-import { getImage } from 'gatsby-plugin-image'
-import { BgImage } from 'gbimage-bridge'
 import styled from 'styled-components'
 
 interface contentDataType {
@@ -22,7 +19,7 @@ interface ButtonProps {
   contentGridTemplateRows: string;
   contentName: string;
   contentInfo: string;
-  contentData: contentDataType;
+  contentData: Array<contentDataType>;
   imageData: string;
 }
 
@@ -30,7 +27,7 @@ interface FrontpageProps {
   contentSectionHeight: string;
   contentGridTemplateRows: string;
   labelData: string;
-  subLabelData: string;
+  subLabelData?: string;
   linkData: string;
   imageData: string;
 }
@@ -38,7 +35,7 @@ interface FrontpageProps {
 interface CreditCardProps {
   contentName: string;
   contentInfo: string;
-  contentData: contentDataType;
+  contentData: Array<contentDataType>;
   fontColor: string;
   bgColor: string;
   borderColor: string;

@@ -12,7 +12,7 @@ export default function Home({ data }) {
   const { navMetadata } = useNavMetadata()
   return (
     <Layout>
-      <ContentWrapper gridType={["1fr", "1fr", "1fr", "1fr", "1fr"]}>
+      <ContentWrapper wrapperGridColumns={["1fr", "1fr", "1fr", "1fr", "1fr"]}>
         <FrontpageInternalCard
           contentSectionHeight="30vh"
           contentGridTemplateRows="1fr"

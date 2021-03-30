@@ -4,12 +4,11 @@ import Layout from "../components/layout"
 import ContentWrapper from "../components/content-wrapper"
 import { OutboundContentCard } from "../components/content-cards"
 
-export default function Timeline({ data }) {
+export default function Timeline() {
   return (
     <Layout>
       <ContentWrapper
-        gridType={["1fr", "1fr", "1fr", "1fr", "1fr"]}
-        minSectionHeight={"100vh"}
+        wrapperGridColumns={["1fr", "1fr", "1fr", "1fr", "1fr"]}
       >
         <OutboundContentCard
           contentSectionHeight="100vh"
