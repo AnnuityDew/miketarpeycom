@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui"
 import { graphql, useStaticQuery, Link } from "gatsby"
-import { GatsbyImage } from "gatsby-plugin-image";
+import { StaticImage } from "gatsby-plugin-image";
 import useSiteMetadata from "../hooks/use-site-metadata"
 import Navigation from "../components/navigation"
 
@@ -9,16 +9,6 @@ type HeaderProps = { bgColor: string }
 
 const Header = ({ bgColor }: HeaderProps) => {
   const { title } = useSiteMetadata()
-  const headshot = useStaticQuery(
-    graphql`query getHeadshot {
-      file(relativePath: {eq: "mike-tarpey-headshot-20200427.jpg"}) {
-        childImageSharp {
-          gatsbyImageData(width: 500, placeholder: NONE, layout: CONSTRAINED)
-        }
-      }
-    }
-    `
-  )
 
   return (
     <header
@@ -58,9 +48,9 @@ const Header = ({ bgColor }: HeaderProps) => {
         aria-label={`${title}, Back to Home`}
         sx={{ width: ["150px", "150px", "150px", "100%", "100%"] }}
       >
-        <GatsbyImage
-          image={headshot.file.childImageSharp.gatsbyImageData}
-          fadeIn={false}
+        <StaticImage
+          src="../images/mike-tarpey-headshot-20200427.jpg"
+          alt=""
           loading="eager" />
       </Link>
       <Navigation bgColor={bgColor} />

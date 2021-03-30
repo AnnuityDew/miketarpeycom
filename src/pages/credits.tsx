@@ -1,11 +1,10 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui"
-import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import ContentWrapper from "../components/content-wrapper"
 import { CreditCard } from "../components/content-cards"
 
-export default function Credits({ data }) {
+export default function Credits() {
   return (
     <Layout>
       <ContentWrapper wrapperGridColumns={["1fr", "1fr", "1fr", "1fr", "1fr"]}>
@@ -22,7 +21,7 @@ export default function Credits({ data }) {
           fontColor="rgba(0, 0, 0, 1)"
           bgColor="rgba(255, 255, 255, 1)"
           borderColor="rgba(0, 0, 0, 1)"
-          buttonClass="dark-button"
+          buttonType="dark"
         />
         <CreditCard
           contentName="Gatsby"
@@ -37,22 +36,7 @@ export default function Credits({ data }) {
           fontColor="rgba(255, 255, 255, 1)"
           bgColor="rgba(95, 56, 148, 1)"
           borderColor="rgba(255, 255, 255, 1)"
-          buttonClass="light-button"
-        />
-        <CreditCard
-          contentName="Shoelace"
-          contentInfo="Nice looking buttons! (And a whole lot more.)"
-          contentData={[
-            {
-              labelData: "visit shoelace.style",
-              linkData: "https://shoelace.style/",
-              sizeData: "large",
-            },
-          ]}
-          fontColor="rgba(255, 255, 255, 1)"
-          bgColor="rgba(88, 158, 248, 1)"
-          borderColor="rgba(255, 255, 255, 1)"
-          buttonClass="light-button"
+          buttonType="light"
         />
         <CreditCard
           contentName="CSS-Tricks"
@@ -69,7 +53,7 @@ export default function Credits({ data }) {
             130deg
             ,#ff7a18,#af002d 41.07%,#319197 76.05%)"
           borderColor="rgba(255, 255, 255, 1)"
-          buttonClass="light-button"
+          buttonType="light"
         />
         <CreditCard
           contentName="Firebase"
@@ -84,18 +68,9 @@ export default function Credits({ data }) {
           fontColor="rgba(0, 0, 0, 1)"
           bgColor="rgba(247, 204, 81, 1)"
           borderColor="rgba(0, 0, 0, 1)"
-          buttonClass="dark-button"
+          buttonType="dark"
         />
       </ContentWrapper>
     </Layout>
   )
 }
-
-export const query = graphql`query getCreditsPictures {
-  actuary: file(relativePath: {eq: "mike-tarpey-richmond-actuary.jpg"}) {
-    childImageSharp {
-      gatsbyImageData(quality: 95, placeholder: NONE, layout: FULL_WIDTH)
-    }
-  }
-}
-`

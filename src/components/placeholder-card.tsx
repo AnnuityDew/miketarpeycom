@@ -26,6 +26,7 @@ const PlaceholderCard = ({
   cardData,
   imageData,
 }: ButtonProps) => {
+  const pluginImage = getImage(imageData);
   return (
     <div
       sx={{
@@ -39,7 +40,7 @@ const PlaceholderCard = ({
         },
       }}
     >
-      <BackgroundImage Tag="section" fluid={imageData}>
+      <BgImage Tag="section" image={pluginImage}>
         <h2 sx={{ justifySelf: "center", alignSelf: "end" }}>{cardName}</h2>
         <span>{cardInfo}</span>
         {/* loop through array of card links to add a button for each */}
@@ -64,7 +65,7 @@ const PlaceholderCard = ({
             />
           ))}
         </div>
-      </BackgroundImage>
+      </BgImage>
     </div>
   )
 }

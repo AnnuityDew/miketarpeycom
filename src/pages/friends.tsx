@@ -25,7 +25,7 @@ export default function Friends({ data }) {
               sizeData: "large",
             },
           ]}
-          imageData={data.trevor.childImageSharp.gatsbyImageData}
+          imageData="/pics/trevor-wentt-freshness.jpg"
         />
         <OutboundContentCard
           contentSectionHeight="80vh"
@@ -59,23 +59,9 @@ export default function Friends({ data }) {
               sizeData: "medium",
             },
           ]}
-          imageData={data.cc.childImageSharp.gatsbyImageData}
+          imageData="/pics/cc-crown-grab.jpg"
         />
       </ContentWrapper>
     </Layout>
   );
 }
-
-export const query = graphql`query getFriendPictures {
-  trevor: file(relativePath: {eq: "trevor-wentt-freshness.jpg"}) {
-    childImageSharp {
-      gatsbyImageData(quality: 95, placeholder: NONE, layout: FULL_WIDTH)
-    }
-  }
-  cc: file(relativePath: {eq: "cc-crown-grab.jpg"}) {
-    childImageSharp {
-      gatsbyImageData(quality: 95, placeholder: NONE, layout: FULL_WIDTH)
-    }
-  }
-}
-`

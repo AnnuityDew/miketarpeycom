@@ -1,46 +1,59 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui"
-import { Link } from "gatsby"
+import { Link, useStaticQuery, graphql } from "gatsby"
 import { OutboundLink } from "gatsby-plugin-google-gtag"
 import BackgroundImage from "gatsby-background-image"
 import {
   InternalShoelaceButton,
   OutboundShoelaceButton,
 } from "./buttons"
+import { getImage } from 'gatsby-plugin-image'
+import { BgImage } from 'gbimage-bridge'
+import styled from 'styled-components'
 
-type contentDataType = {
+interface contentDataType {
   labelData: string;
   linkData: string;
   sizeData: string;
-}[]
+}
 
-type ButtonProps = {
+interface ButtonProps {
   contentSectionHeight: string;
   contentGridTemplateRows: string;
   contentName: string;
   contentInfo: string;
   contentData: contentDataType;
-  imageData: Object;
+  imageData: string;
 }
 
-type FrontpageProps = {
+interface FrontpageProps {
   contentSectionHeight: string;
   contentGridTemplateRows: string;
   labelData: string;
   subLabelData: string;
   linkData: string;
-  imageData: Object;
+  imageData: string;
 }
 
-type CreditCardProps = {
+interface CreditCardProps {
   contentName: string;
   contentInfo: string;
   contentData: contentDataType;
   fontColor: string;
   bgColor: string;
   borderColor: string;
-  buttonClass: string;
+  buttonType: string;
 }
+
+const BGSection = styled.section`
+  ${props => {
+    return `
+    background-image: url(${props.imgsrc});
+    background-position: center;
+    background-size: cover;
+    `
+  }}
+`
 
 export const InternalContentCard = ({
   contentSectionHeight,
@@ -50,7 +63,6 @@ export const InternalContentCard = ({
   contentData,
   imageData,
 }: ButtonProps) => {
-  const pluginImage = getImage(imageData);
   return (
     <div
       sx={{
@@ -64,7 +76,7 @@ export const InternalContentCard = ({
         },
       }}
     >
-      <BgImage Tag="section" image={plugin}>
+      <BGSection imgsrc={imageData}>
         <h2 sx={{ justifySelf: "center", alignSelf: "end" }}>{contentName}</h2>
         <span sx={{ textAlign: "center" }}>{contentInfo}</span>
         {/* loop through array of friend links to add a button for each */}
@@ -84,15 +96,15 @@ export const InternalContentCard = ({
               key={content.labelData}
               label={content.labelData}
               url={content.linkData}
-              slSize={content.sizeData}
-              className="light-button"
+              kind="light"
             />
           ))}
         </div>
-      </BgImage>
+      </BGSection>
     </div>
   )
 }
+
 
 export const OutboundContentCard = ({
   contentSectionHeight,
@@ -115,7 +127,7 @@ export const OutboundContentCard = ({
         },
       }}
     >
-      <BackgroundImage Tag="section" fluid={imageData}>
+      <BGSection imgsrc={imageData}>
         <h2 sx={{ justifySelf: "center", alignSelf: "end" }}>{contentName}</h2>
         <span sx={{ textAlign: "center" }}>{contentInfo}</span>
         {/* loop through array of friend links to add a button for each */}
@@ -135,12 +147,11 @@ export const OutboundContentCard = ({
               key={content.labelData}
               label={content.labelData}
               url={content.linkData}
-              slSize={content.sizeData}
-              className="light-button"
+              kind="light"
             />
           ))}
         </div>
-      </BackgroundImage>
+      </BGSection>
     </div>
   )
 }
@@ -165,9 +176,9 @@ export const FrontpageInternalCard = ({
       }}
     >
       <Link to={linkData}>
-        <BackgroundImage Tag="section" fluid={imageData}>
+        <BGSection imgsrc={imageData}>
           <h1 className="home-click">{labelData}</h1>
-        </BackgroundImage>
+        </BGSection>
       </Link>
     </div>
   )
@@ -194,10 +205,10 @@ export const FrontpageOutboundCard = ({
       }}
     >
       <OutboundLink href={linkData}>
-        <BackgroundImage Tag="section" fluid={imageData}>
+        <BGSection imgsrc={imageData}>
           <h1 className="home-click">{labelData}</h1>
           <h3 className="home-click">{subLabelData}</h3>
-        </BackgroundImage>
+        </BGSection>
       </OutboundLink>
     </div>
   )
@@ -210,7 +221,7 @@ export const CreditCard = ({
   fontColor,
   bgColor,
   borderColor,
-  buttonClass,
+  buttonType,
 }: CreditCardProps) => {
   const acrossGridTemplate = "1fr / 1fr 2fr 1fr"
   const downGridTemplate = "1fr 1fr 1fr / 1fr"
@@ -261,8 +272,7 @@ export const CreditCard = ({
             key={content.labelData}
             label={content.labelData}
             url={content.linkData}
-            slSize={content.sizeData}
-            className={buttonClass}
+            kind={buttonType}
           />
         ))}
       </div>
