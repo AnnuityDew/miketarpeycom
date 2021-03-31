@@ -108,7 +108,7 @@ export const pageQuery = graphql`
         gatsbyImageData(placeholder: BLURRED)
       }
     }
-    blog: file(relativePath: { eq: "dimmed/cat-blogger.jpg" }) {
+    blog: file(relativePath: { eq: "raw/cat-blogger.jpg" }) {
       childImageSharp {
         gatsbyImageData(placeholder: BLURRED)
       }
