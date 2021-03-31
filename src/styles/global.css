@@ -7,10 +7,10 @@
 }
 
 html {
-  font-size: 2rem;
+  font-size: 1rem;
   font-family: "Poppins", "Lato", sans-serif;
   -webkit-text-size-adjust: 100%;
-  background: conic-gradient(from 90deg at 50% 125%, #20b2aa, #135da5, #0d0895, #4b0082, #4b0082, #0d0895, #135da5, #20b2aa);
+  background: conic-gradient(from 225deg at -100px -100px, #20b2aa, #135da5, #0d0895, #4b0082, #4b0082, #0d0895, #135da5, #20b2aa);
   color: white;
 }
 
@@ -30,7 +30,7 @@ h1 {
   margin: 20px 0;
 }
 
-h2, h3, h4, h5, h6 {
-  margin: 10px 0;
-  text-align: center;
+ul {
+  list-style-type: none;
+  padding-inline-start: 0;
 }

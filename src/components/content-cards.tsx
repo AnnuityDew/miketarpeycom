@@ -3,8 +3,8 @@ import { jsx } from "theme-ui"
 import { Link } from "gatsby"
 import { OutboundLink } from "gatsby-plugin-google-gtag"
 import {
-  InternalShoelaceButton,
-  OutboundShoelaceButton,
+  InternalButton,
+  OutboundButton,
 } from "./buttons"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import styled from 'styled-components'
@@ -12,8 +12,7 @@ import styled from 'styled-components'
 interface CardProps {
   internal: boolean;
   label: string;
-  sublabel: string;
-  linksrc: string;
+  children: React.ReactNode;
   imagesrc: ImageDataLike;
   imagealt: string;
 }
@@ -99,7 +98,7 @@ export const InternalContentCard = ({
           }}
         >
           {contentData.map(content => (
-            <InternalShoelaceButton
+            <InternalButton
               key={content.labelData}
               label={content.labelData}
               url={content.linkData}
@@ -150,7 +149,7 @@ export const OutboundContentCard = ({
           }}
         >
           {contentData.map(content => (
-            <OutboundShoelaceButton
+            <OutboundButton
               key={content.labelData}
               label={content.labelData}
               url={content.linkData}
@@ -275,7 +274,7 @@ export const CreditCard = ({
         }}
       >
         {contentData.map(content => (
-          <OutboundShoelaceButton
+          <OutboundButton
             key={content.labelData}
             label={content.labelData}
             url={content.linkData}
@@ -288,6 +287,11 @@ export const CreditCard = ({
 }
 
 const GlassDiv = styled.div`
+  padding: 20px;
+  display: grid;
+  grid-gap: 10px;
+  grid-template-rows: 3fr 1fr 2fr 1fr;
+  align-items: stretch;
   min-height: 400px;
   height: 50vh;
   background: rgba( 255, 255, 255, 0.25 );
@@ -308,12 +312,10 @@ how-can-i-fill-a-div-with-an-image-while-keeping-it-proportional
 */
 
 const PicDiv = styled.div`
-  height: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  margin: 20px;
   box-shadow:  5px 5px 10px rgba( 31, 38, 135, .7 ),
               -5px 5px 10px rgba( 31, 38, 135, .7 );
 `
@@ -324,11 +326,14 @@ const StyledGatsbyImage = styled(GatsbyImage)`
   opacity: 100%;
 `
 
+const Cardh2 = styled.h2`
+  place-self: end start;
+`
+
 export const NavCard = ({
   internal,
   label,
-  sublabel,
-  linksrc,
+  children,
   imagesrc,
   imagealt,
 }: CardProps) => {
@@ -339,8 +344,8 @@ export const NavCard = ({
         <PicDiv>
           <StyledGatsbyImage image={image} alt={imagealt} />
         </PicDiv>
-        <h3>{label}</h3>
-        <h5>{sublabel}</h5>
+        <Cardh2>{label}</Cardh2>
+        {children}
       </GlassDiv>
     )
   } else {
@@ -349,8 +354,8 @@ export const NavCard = ({
         <PicDiv>
           <StyledGatsbyImage image={image} alt={imagealt} />
         </PicDiv>
-        <h3>{label}</h3>
-        <h5>{sublabel}</h5>
+        <Cardh2>{label}</Cardh2>
+        {children}
       </GlassDiv>
     )
   }

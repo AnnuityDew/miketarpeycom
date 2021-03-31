@@ -1,63 +1,122 @@
-/** @jsx jsx */
-import { jsx } from "theme-ui"
-import Layout from "../components/layout"
-import { ContentWrapper } from "../components/content-wrappers"
+import React from "react"
+import { graphql } from "gatsby"
+import NewLayout from "../components/new-layout"
 import useNavMetadata from "../hooks/use-nav-metadata"
-import {
-  FrontpageInternalCard,
-  FrontpageOutboundCard,
-} from "../components/content-cards"
+import { NavCard } from "../components/content-cards"
+import { CardGrid } from "../components/content-wrappers"
+import { InternalButton, OutboundButton } from "../components/buttons"
 
 export default function Home({ data }) {
   const { navMetadata } = useNavMetadata()
   return (
-    <Layout>
-      <ContentWrapper wrapperGridColumns={["1fr", "1fr", "1fr", "1fr", "1fr"]}>
-        <FrontpageInternalCard
-          contentSectionHeight="30vh"
-          contentGridTemplateRows="1fr"
-          labelData="about"
-          linkData={navMetadata[1]["slug"]}
-          imageData="/pics/mike-tarpey-at-pax.jpg"
-        />
-        <FrontpageInternalCard
-          contentSectionHeight="30vh"
-          contentGridTemplateRows="1fr"
-          labelData="timeline"
-          linkData={navMetadata[2]["slug"]}
-          imageData="/pics/mike-tarpey-childhood-beach.jpg"
-        />
-        <FrontpageInternalCard
-          contentSectionHeight="30vh"
-          contentGridTemplateRows="1fr"
-          labelData="friends"
-          linkData={navMetadata[3]["slug"]}
-          imageData="/pics/dew-uconn-crew.jpg"
-        />
-        <FrontpageOutboundCard
-          contentSectionHeight="30vh"
-          contentGridTemplateRows="1fr"
-          labelData="apps"
-          subLabelData="(tarpey.dev)"
-          linkData="https://tarpey.dev"
-          imageData="/pics/code-screencap-dim.jpg"
-        />
-        <FrontpageOutboundCard
-          contentSectionHeight="30vh"
-          contentGridTemplateRows="1fr"
-          labelData="blog"
-          subLabelData="(medium.com)"
-          linkData="https://miketarpey.medium.com/"
-          imageData="/pics/cat-blogger.jpg"
-        />
-        <FrontpageInternalCard
-          contentSectionHeight="30vh"
-          contentGridTemplateRows="1fr"
-          labelData="credits"
-          linkData={navMetadata[4]["slug"]}
-          imageData="/pics/baxter-bravo-stack.jpg"
-        />
-      </ContentWrapper>
-    </Layout>
+    <NewLayout>
+      <h1>mike tarpey</h1>
+      <CardGrid>
+        <NavCard
+          internal={true}
+          label="about"
+          imagesrc={data.about.childImageSharp.gatsbyImageData}
+          imagealt="Recent headshot of Mike Tarpey."
+        >
+          <ul>
+            <li>-aspiring software engineer</li>
+            <li>-credentialed actuary</li>
+            <li>-casual Twitch streamer</li>
+            <li>-UConn alum.</li>
+          </ul>
+          <InternalButton label="view resume + projects" url={navMetadata[1]["slug"]} kind="light" width="100%" />
+        </NavCard>
+        <NavCard
+          internal={true}
+          label="timeline"
+          imagesrc={data.timeline.childImageSharp.gatsbyImageData}
+          imagealt="Childhood picture of Mike Tarpey at Daytona Beach."
+        >
+          <p>
+            A selection of the memories I carry around.
+          </p>
+          <InternalButton label="coming soon!" url={navMetadata[2]["slug"]} kind="light" width="100%" />
+        </NavCard>
+        <NavCard
+          internal={true}
+          label="friends"
+          imagesrc={data.friends.childImageSharp.gatsbyImageData}
+          imagealt="Mike Tarpey's last photo with his UConn crew before graduating."
+        >
+          <p>
+            Portal to the amazing things that my friends are creating.
+          </p>
+          <InternalButton label="learn more" url={navMetadata[3]["slug"]} kind="light" width="100%" />
+        </NavCard>
+        <NavCard
+          internal={false}
+          label="apps"
+          imagesrc={data.apps.childImageSharp.gatsbyImageData}
+          imagealt="Screenshot of some JavaScript code."
+        >
+          <p>
+            My app sandbox. Game backlog, March Madness, stats for Mildred League, and more...
+          </p>
+          <OutboundButton label="visit tarpey.dev" url="https://tarpey.dev" kind="light" width="100%" />
+        </NavCard>
+        <NavCard
+          internal={false}
+          label="blog"
+          imagesrc={data.blog.childImageSharp.gatsbyImageData}
+          imagealt="A cat standing on Mike Tarpey's laptop keyboard."
+        >
+          <p>
+            Ideas and solutions from my day-to-day.
+          </p>
+          <OutboundButton label="visit medium.com" url="https://miketarpey.medium.com/" kind="light" width="100%" />
+        </NavCard>
+        <NavCard
+          internal={true}
+          label="credits"
+          imagesrc={data.credits.childImageSharp.gatsbyImageData}
+          imagealt="The dogs Baxter and Bravo hanging out in the backyard, one stacked on top of the other."
+        >
+        <p>
+          The technologies that currently make this site possible.
+        </p>
+        <InternalButton label="view credits" url={navMetadata[4]["slug"]} kind="light" width="100%" />
+        </NavCard>
+      </CardGrid>
+    </NewLayout>
   )
 }
+
+export const pageQuery = graphql`
+  query getIndexPictures {
+    about: file(relativePath: { eq: "raw/mike-tarpey-at-pax.jpg" }) {
+      childImageSharp {
+        gatsbyImageData(placeholder: BLURRED)
+      }
+    }
+    timeline: file(relativePath: { eq: "raw/mike-tarpey-childhood-beach.jpg" }) {
+      childImageSharp {
+        gatsbyImageData(placeholder: BLURRED)
+      }
+    }
+    friends: file(relativePath: { eq: "raw/dew-uconn-crew.jpg" }) {
+      childImageSharp {
+        gatsbyImageData(placeholder: BLURRED)
+      }
+    }
+    apps: file(relativePath: { eq: "raw/code-screencap.png" }) {
+      childImageSharp {
+        gatsbyImageData(placeholder: BLURRED)
+      }
+    }
+    blog: file(relativePath: { eq: "dimmed/cat-blogger.jpg" }) {
+      childImageSharp {
+        gatsbyImageData(placeholder: BLURRED)
+      }
+    }
+    credits: file(relativePath: { eq: "raw/baxter-bravo-stack.jpg" }) {
+      childImageSharp {
+        gatsbyImageData(placeholder: BLURRED)
+      }
+    }
+  }
+`
