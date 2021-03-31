@@ -12,6 +12,7 @@ html {
   -webkit-text-size-adjust: 100%;
   background: conic-gradient(from 225deg at -100px -100px, #20b2aa, #135da5, #0d0895, #4b0082, #4b0082, #0d0895, #135da5, #20b2aa);
   color: white;
+  min-height: 100%;
 }
 
 body {
