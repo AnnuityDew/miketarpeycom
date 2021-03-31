@@ -1,12 +1,28 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui"
+import styled from "styled-components"
 
 interface ContentWrapperProps {
   children: React.ReactNode
-  wrapperGridColumns: Array<string>
+  wrapperGridColumns?: Array<string>
 }
 
-const ContentWrapper = ({
+const GriddedIndexSection = styled.section`
+  padding: 10px 0;
+  display: grid;
+  grid-gap: 50px;
+  grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr));
+`
+
+export const CardGrid = ({
+  children,
+}: ContentWrapperProps) => (
+  <GriddedIndexSection>
+    {children}
+  </GriddedIndexSection>
+)
+
+export const ContentWrapper = ({
   children,
   wrapperGridColumns,
 }: ContentWrapperProps) => (
@@ -28,5 +44,3 @@ const ContentWrapper = ({
     {children}
   </div>
 )
-
-export default ContentWrapper

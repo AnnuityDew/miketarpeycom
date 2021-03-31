@@ -7,15 +7,17 @@ interface ButtonProps {
   label: string
   url: string
   kind: string
+  width: string
 }
 
 export const StyledButton = styled.button`
+  width: ${props => props.width};
   place-items: center;
   cursor: pointer;
   font-size: 1em;
   font-weight: 700;
   font-family: Poppins, sans-serif;
-  padding: 1rem 1rem;
+  padding: 0.5rem 0.5rem;
   border-radius: 3px;
   transition: 0.3s;
   ${props => {
@@ -41,32 +43,20 @@ export const StyledButton = styled.button`
   }}
 `
 
-export const InternalShoelaceButton = ({
-  label,
-  url,
-  kind,
-}: ButtonProps) => (
+export const InternalButton = ({ label, url, kind, width }: ButtonProps) => (
   /* outer div allows us to pad and align */
   <div>
     <Link to={url}>
-      <StyledButton kind={kind}>
-        {label}
-      </StyledButton>
+      <StyledButton kind={kind} width={width}>{label}</StyledButton>
     </Link>
   </div>
 )
 
-export const OutboundShoelaceButton = ({
-  label,
-  url,
-  kind,
-}: ButtonProps) => (
+export const OutboundButton = ({ label, url, kind, width }: ButtonProps) => (
   /* outer div allows us to pad and align */
   <div>
     <OutboundLink href={url}>
-      <StyledButton kind={kind}>
-        {label}
-      </StyledButton>
+      <StyledButton kind={kind} width={width}>{label}</StyledButton>
     </OutboundLink>
   </div>
 )

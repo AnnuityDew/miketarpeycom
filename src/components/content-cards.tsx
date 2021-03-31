@@ -3,10 +3,19 @@ import { jsx } from "theme-ui"
 import { Link } from "gatsby"
 import { OutboundLink } from "gatsby-plugin-google-gtag"
 import {
-  InternalShoelaceButton,
-  OutboundShoelaceButton,
+  InternalButton,
+  OutboundButton,
 } from "./buttons"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import styled from 'styled-components'
+
+interface CardProps {
+  internal: boolean;
+  label: string;
+  children: React.ReactNode;
+  imagesrc: ImageDataLike;
+  imagealt: string;
+}
 
 interface contentDataType {
   labelData: string;
@@ -89,7 +98,7 @@ export const InternalContentCard = ({
           }}
         >
           {contentData.map(content => (
-            <InternalShoelaceButton
+            <InternalButton
               key={content.labelData}
               label={content.labelData}
               url={content.linkData}
@@ -140,7 +149,7 @@ export const OutboundContentCard = ({
           }}
         >
           {contentData.map(content => (
-            <OutboundShoelaceButton
+            <OutboundButton
               key={content.labelData}
               label={content.labelData}
               url={content.linkData}
@@ -265,7 +274,7 @@ export const CreditCard = ({
         }}
       >
         {contentData.map(content => (
-          <OutboundShoelaceButton
+          <OutboundButton
             key={content.labelData}
             label={content.labelData}
             url={content.linkData}
@@ -275,4 +284,79 @@ export const CreditCard = ({
       </div>
     </div>
   )
+}
+
+const GlassDiv = styled.div`
+  padding: 20px;
+  display: grid;
+  grid-gap: 10px;
+  grid-template-rows: 3fr 1fr 2fr 1fr;
+  align-items: stretch;
+  min-height: 400px;
+  height: 50vh;
+  background: rgba( 255, 255, 255, 0.25 );
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 10.0px );
+  -webkit-backdrop-filter: blur( 10.0px );
+  border-radius: 10px;
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
+  transition: 0.3s;
+  &:hover {
+    background: rgba( 255, 255, 255, 0.5 );
+  }
+`
+
+/* images that fill container
+https://stackoverflow.com/questions/14142378/
+how-can-i-fill-a-div-with-an-image-while-keeping-it-proportional
+*/
+
+const PicDiv = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  box-shadow:  5px 5px 10px rgba( 31, 38, 135, .7 ),
+              -5px 5px 10px rgba( 31, 38, 135, .7 );
+`
+
+const StyledGatsbyImage = styled(GatsbyImage)`
+  min-width: 100%;
+  min-height: 100%;
+  opacity: 100%;
+`
+
+const Cardh2 = styled.h2`
+  place-self: end start;
+`
+
+export const NavCard = ({
+  internal,
+  label,
+  children,
+  imagesrc,
+  imagealt,
+}: CardProps) => {
+  const image = getImage(imagesrc);
+  if (internal === true) {
+    return (
+      <GlassDiv>
+        <PicDiv>
+          <StyledGatsbyImage image={image} alt={imagealt} />
+        </PicDiv>
+        <Cardh2>{label}</Cardh2>
+        {children}
+      </GlassDiv>
+    )
+  } else {
+    return (
+      <GlassDiv>
+        <PicDiv>
+          <StyledGatsbyImage image={image} alt={imagealt} />
+        </PicDiv>
+        <Cardh2>{label}</Cardh2>
+        {children}
+      </GlassDiv>
+    )
+  }
 }

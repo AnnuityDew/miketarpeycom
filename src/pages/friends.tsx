@@ -1,15 +1,13 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui"
 import Layout from "../components/layout"
-import ContentWrapper from "../components/content-wrapper"
+import { ContentWrapper } from "../components/content-wrappers"
 import { OutboundContentCard } from "../components/content-cards"
 
 export default function Friends() {
   return (
     <Layout>
-      <ContentWrapper
-        wrapperGridColumns={["1fr", "1fr", "1fr", "1fr", "1fr"]}
-      >
+      <ContentWrapper wrapperGridColumns={["1fr", "1fr", "1fr", "1fr", "1fr"]}>
         <OutboundContentCard
           contentSectionHeight="80vh"
           contentGridTemplateRows="1.2fr 0.6fr 1.2fr"
@@ -61,5 +59,5 @@ export default function Friends() {
         />
       </ContentWrapper>
     </Layout>
-  );
+  )
 }

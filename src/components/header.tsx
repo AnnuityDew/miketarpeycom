@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui"
 import { graphql, useStaticQuery, Link } from "gatsby"
-import { StaticImage } from "gatsby-plugin-image";
+import { StaticImage } from "gatsby-plugin-image"
 import useSiteMetadata from "../hooks/use-site-metadata"
 import Navigation from "../components/navigation"
 
@@ -51,11 +51,12 @@ const Header = ({ bgColor }: HeaderProps) => {
         <StaticImage
           src="../images/mike-tarpey-headshot-20200427.jpg"
           alt=""
-          loading="eager" />
+          loading="eager"
+        />
       </Link>
       <Navigation bgColor={bgColor} />
     </header>
-  );
+  )
 }
 
 export default Header
