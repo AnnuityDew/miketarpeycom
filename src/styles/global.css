@@ -3,16 +3,19 @@
 
 * {
   box-sizing: border-box;
+  margin: 0;
 }
 
 html {
-  font-family: "Lato", sans-serif;
+  font-size: 2rem;
+  font-family: "Poppins", "Lato", sans-serif;
   -webkit-text-size-adjust: 100%;
-  background-color: #000000;
+  background: conic-gradient(from 90deg at 50% 125%, #20b2aa, #135da5, #0d0895, #4b0082, #4b0082, #0d0895, #135da5, #20b2aa);
+  color: white;
 }
 
 body {
-  margin: 0;
+  margin: 0 50px;
 }
 
 img {
@@ -20,32 +23,5 @@ img {
 }
 
 main {
-  font-family: "Poppins", sans-serif;
-}
-
-/* homepage clickables */
-h1.home-click {
-  font-size: 7vh;
-  margin: 0px;
-}
-h3.home-click {
-  font-size: 3vh;
-  margin: 0px;
-}
-
-h2 {
-  font-size: 4vh;
-  margin: 0px;
-  font-weight: 700;
-  text-align: center;
-}
-
-section ul {
-  margin: 0 40px;
-  padding: 0;
-  list-style: none;
-}
-
-section li {
-  margin: 1rem 0;
+  font-family: "Poppins", "Lato", sans-serif;
 }

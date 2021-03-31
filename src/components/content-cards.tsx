@@ -6,7 +6,17 @@ import {
   InternalShoelaceButton,
   OutboundShoelaceButton,
 } from "./buttons"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import styled from 'styled-components'
+
+interface CardProps {
+  internal: boolean;
+  label: string;
+  sublabel: string;
+  linksrc: string;
+  imagesrc: ImageDataLike;
+  imagealt: string;
+}
 
 interface contentDataType {
   labelData: string;
@@ -275,4 +285,73 @@ export const CreditCard = ({
       </div>
     </div>
   )
+}
+
+const GlassDiv = styled.div`
+  min-height: 400px;
+  height: 50vh;
+  background: rgba( 255, 255, 255, 0.25 );
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 10.0px );
+  -webkit-backdrop-filter: blur( 10.0px );
+  border-radius: 10px;
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
+  transition: 0.3s;
+  &:hover {
+    background: rgba( 255, 255, 255, 0.5 );
+  }
+`
+
+/* images that fill container
+https://stackoverflow.com/questions/14142378/
+how-can-i-fill-a-div-with-an-image-while-keeping-it-proportional
+*/
+
+const PicDiv = styled.div`
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  margin: 20px;
+  box-shadow:  5px 5px 10px rgba( 31, 38, 135, .7 ),
+              -5px 5px 10px rgba( 31, 38, 135, .7 );
+`
+
+const StyledGatsbyImage = styled(GatsbyImage)`
+  min-width: 100%;
+  min-height: 100%;
+  opacity: 100%;
+`
+
+export const NavCard = ({
+  internal,
+  label,
+  sublabel,
+  linksrc,
+  imagesrc,
+  imagealt,
+}: CardProps) => {
+  const image = getImage(imagesrc);
+  if (internal === true) {
+    return (
+      <GlassDiv>
+        <PicDiv>
+          <StyledGatsbyImage image={image} alt={imagealt} />
+        </PicDiv>
+        <h3>{label}</h3>
+        <h5>{sublabel}</h5>
+      </GlassDiv>
+    )
+  } else {
+    return (
+      <GlassDiv>
+        <PicDiv>
+          <StyledGatsbyImage image={image} alt={imagealt} />
+        </PicDiv>
+        <h3>{label}</h3>
+        <h5>{sublabel}</h5>
+      </GlassDiv>
+    )
+  }
 }

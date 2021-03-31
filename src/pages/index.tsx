@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui"
 import Layout from "../components/layout"
-import ContentWrapper from "../components/content-wrapper"
+import { ContentWrapper } from "../components/content-wrappers"
 import useNavMetadata from "../hooks/use-nav-metadata"
 import {
   FrontpageInternalCard,

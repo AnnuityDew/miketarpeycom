@@ -25,6 +25,7 @@ My personal website.
 * TypeScript / JavaScript
 
 ## References
+* [Glassmorphism](https://glassmorphism.com)
 * Important SEO/site-checking tools!
   * [Favicon Generator](https://realfavicongenerator.net/)
   * [Facebook Crawler](https://developers.facebook.com/tools/debug)
