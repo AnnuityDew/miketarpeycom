@@ -17,9 +17,15 @@ export default function Home({ data }) {
           gridrowcss="5fr 1fr 2fr 1fr"
         >
           <h5>
-            He makes art to challenge perspectives and give hope to the marginalized and oppressed.
+            He makes art to challenge perspectives and give hope to the
+            marginalized and oppressed.
           </h5>
-          <OutboundButton label="visit trevorwentt.com" url="https://trevorwentt.com/" kind="light" width="100%" />
+          <OutboundButton
+            label="visit trevorwentt.com"
+            url="https://trevorwentt.com/"
+            kind="light"
+            width="100%"
+          />
         </NavCard>
         <NavCard
           internal={false}
@@ -28,10 +34,13 @@ export default function Home({ data }) {
           imagealt="A Fall Guys character grabbing the Fall Mountain crown for the win!"
           gridrowcss="5fr 1fr 2fr 1fr"
         >
-          <h5>
-            Bad memes and nonstop emotes...we have fun here.
-          </h5>
-          <OutboundButton label="join the discord" url="https://discord.com/invite/bVDZfNe" kind="light" width="100%" />
+          <h5>Bad memes and nonstop emotes...we have fun here.</h5>
+          <OutboundButton
+            label="join the discord"
+            url="https://discord.com/invite/bVDZfNe"
+            kind="light"
+            width="100%"
+          />
         </NavCard>
       </CardGrid>
     </NewLayout>

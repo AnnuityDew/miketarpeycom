@@ -12,7 +12,9 @@ export default function Page() {
 
 export const pageQuery = graphql`
   query getTimelinePictures {
-    headshot: file(relativePath: { eq: "raw/mike-tarpey-headshot-20200427.jpg" }) {
+    headshot: file(
+      relativePath: { eq: "raw/mike-tarpey-headshot-20200427.jpg" }
+    ) {
       childImageSharp {
         gatsbyImageData(placeholder: BLURRED)
       }

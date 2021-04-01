@@ -19,7 +19,9 @@ export default function Home({ data }) {
 
 export const pageQuery = graphql`
   query getAboutPictures {
-    headshot: file(relativePath: { eq: "raw/mike-tarpey-headshot-20200427.jpg" }) {
+    headshot: file(
+      relativePath: { eq: "raw/mike-tarpey-headshot-20200427.jpg" }
+    ) {
       childImageSharp {
         gatsbyImageData(placeholder: NONE)
       }

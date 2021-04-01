@@ -5,19 +5,28 @@ import styled from "styled-components"
 import { breakpoints } from "../utils/breakpoints"
 
 const StyledListLink = styled(Link)`
-  background: conic-gradient(from 225deg at -100px -100px, #20b2aa, #135da5, #0d0895, #4b0082, #4b0082, #0d0895, #135da5, #20b2aa);
+  background: conic-gradient(
+    from 225deg at -100px -100px,
+    #20b2aa,
+    #135da5,
+    #0d0895,
+    #4b0082,
+    #4b0082,
+    #0d0895,
+    #135da5,
+    #20b2aa
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 `
 
-const ListLink = props => <StyledListLink to={props.to}>{props.children}</StyledListLink>
+const ListLink = props => (
+  <StyledListLink to={props.to}>{props.children}</StyledListLink>
+)
 
 const TopRightNav = styled.nav`
   place-self: center end;
-  ${breakpoints("display", "", [
-    { 0: "none" },
-    { 800: "block" },
-  ])}
+  ${breakpoints("display", "", [{ 0: "none" }, { 800: "block" }])}
 `
 
 const NavList = styled.ul`

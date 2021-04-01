@@ -47,7 +47,9 @@ export const InternalButton = ({ label, url, kind, width }: ButtonProps) => (
   /* outer div allows us to pad and align */
   <div>
     <Link to={url}>
-      <StyledButton kind={kind} width={width}>{label}</StyledButton>
+      <StyledButton kind={kind} width={width}>
+        {label}
+      </StyledButton>
     </Link>
   </div>
 )
@@ -56,7 +58,9 @@ export const OutboundButton = ({ label, url, kind, width }: ButtonProps) => (
   /* outer div allows us to pad and align */
   <div>
     <OutboundLink href={url}>
-      <StyledButton kind={kind} width={width}>{label}</StyledButton>
+      <StyledButton kind={kind} width={width}>
+        {label}
+      </StyledButton>
     </OutboundLink>
   </div>
 )

@@ -13,10 +13,6 @@ const GriddedIndexSection = styled.section`
   grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr));
 `
 
-export const CardGrid = ({
-  children,
-}: ContentWrapperProps) => (
-  <GriddedIndexSection>
-    {children}
-  </GriddedIndexSection>
+export const CardGrid = ({ children }: ContentWrapperProps) => (
+  <GriddedIndexSection>{children}</GriddedIndexSection>
 )

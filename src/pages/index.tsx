@@ -23,7 +23,12 @@ export default function Home({ data }) {
             <li>-casual Twitch streamer</li>
             <li>-UConn alum.</li>
           </ul>
-          <InternalButton label="full resume + projects" url={navMetadata[1]["slug"]} kind="light" width="100%" />
+          <InternalButton
+            label="full resume + projects"
+            url={navMetadata[1]["slug"]}
+            kind="light"
+            width="100%"
+          />
         </NavCard>
         <NavCard
           internal={true}
@@ -31,10 +36,13 @@ export default function Home({ data }) {
           imagesrc={data.timeline.childImageSharp.gatsbyImageData}
           imagealt="Childhood picture of Mike Tarpey at Daytona Beach."
         >
-          <p>
-            A selection of the memories I carry around.
-          </p>
-          <InternalButton label="coming soon!" url={navMetadata[2]["slug"]} kind="light" width="100%" />
+          <p>A selection of the memories I carry around.</p>
+          <InternalButton
+            label="coming soon!"
+            url={navMetadata[2]["slug"]}
+            kind="light"
+            width="100%"
+          />
         </NavCard>
         <NavCard
           internal={true}
@@ -42,10 +50,13 @@ export default function Home({ data }) {
           imagesrc={data.friends.childImageSharp.gatsbyImageData}
           imagealt="Mike Tarpey's last photo with his UConn crew before graduating."
         >
-          <p>
-            Portal to the amazing things that my friends are creating.
-          </p>
-          <InternalButton label="learn more" url={navMetadata[3]["slug"]} kind="light" width="100%" />
+          <p>Portal to the amazing things that my friends are creating.</p>
+          <InternalButton
+            label="learn more"
+            url={navMetadata[3]["slug"]}
+            kind="light"
+            width="100%"
+          />
         </NavCard>
         <NavCard
           internal={false}
@@ -54,9 +65,15 @@ export default function Home({ data }) {
           imagealt="Screenshot of some JavaScript code."
         >
           <p>
-            My app sandbox. Game backlog, March Madness, stats for Mildred League, and more...
+            My app sandbox. Game backlog, March Madness, stats for Mildred
+            League, and more...
           </p>
-          <OutboundButton label="visit tarpey.dev" url="https://tarpey.dev" kind="light" width="100%" />
+          <OutboundButton
+            label="visit tarpey.dev"
+            url="https://tarpey.dev"
+            kind="light"
+            width="100%"
+          />
         </NavCard>
         <NavCard
           internal={false}
@@ -64,10 +81,13 @@ export default function Home({ data }) {
           imagesrc={data.blog.childImageSharp.gatsbyImageData}
           imagealt="A cat standing on Mike Tarpey's laptop keyboard."
         >
-          <p>
-            Ideas and solutions from my day-to-day.
-          </p>
-          <OutboundButton label="visit medium.com" url="https://miketarpey.medium.com/" kind="light" width="100%" />
+          <p>Ideas and solutions from my day-to-day.</p>
+          <OutboundButton
+            label="visit medium.com"
+            url="https://miketarpey.medium.com/"
+            kind="light"
+            width="100%"
+          />
         </NavCard>
         <NavCard
           internal={true}
@@ -75,10 +95,13 @@ export default function Home({ data }) {
           imagesrc={data.credits.childImageSharp.gatsbyImageData}
           imagealt="The dogs Baxter and Bravo hanging out in the backyard, one stacked on top of the other."
         >
-        <p>
-          The technologies that currently make this site possible.
-        </p>
-        <InternalButton label="view credits" url={navMetadata[4]["slug"]} kind="light" width="100%" />
+          <p>The technologies that currently make this site possible.</p>
+          <InternalButton
+            label="view credits"
+            url={navMetadata[4]["slug"]}
+            kind="light"
+            width="100%"
+          />
         </NavCard>
       </CardGrid>
     </NewLayout>
@@ -92,7 +115,9 @@ export const pageQuery = graphql`
         gatsbyImageData(placeholder: NONE)
       }
     }
-    timeline: file(relativePath: { eq: "raw/mike-tarpey-childhood-beach.jpg" }) {
+    timeline: file(
+      relativePath: { eq: "raw/mike-tarpey-childhood-beach.jpg" }
+    ) {
       childImageSharp {
         gatsbyImageData(placeholder: NONE)
       }

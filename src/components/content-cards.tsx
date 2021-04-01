@@ -1,16 +1,15 @@
 import React from "react"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
-import styled from 'styled-components'
+import styled from "styled-components"
 
 interface CardProps {
-  internal?: boolean;
-  label?: string;
-  children?: React.ReactNode;
-  imagesrc: ImageDataLike;
-  imagealt: string;
-  gridrowcss?: string;
+  internal?: boolean
+  label?: string
+  children?: React.ReactNode
+  imagesrc: ImageDataLike
+  imagealt: string
+  gridrowcss?: string
 }
-
 
 const IndexGlassDiv = styled.section`
   padding: 20px;
@@ -20,15 +19,15 @@ const IndexGlassDiv = styled.section`
   align-items: stretch;
   min-height: ${props => props.minHeight};
   height: 60vh;
-  background: rgba( 255, 255, 255, 0.25 );
-  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-  backdrop-filter: blur( 10.0px );
-  -webkit-backdrop-filter: blur( 10.0px );
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   border-radius: 10px;
-  border: 1px solid rgba( 255, 255, 255, 0.18 );
+  border: 1px solid rgba(255, 255, 255, 0.18);
   transition: 0.3s;
   &:hover {
-    background: rgba( 255, 255, 255, 0.35 );
+    background: rgba(255, 255, 255, 0.35);
   }
 `
 
@@ -42,8 +41,8 @@ const CoverPicDiv = styled.div`
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  box-shadow:  5px 5px 10px rgba( 31, 38, 135, .7 ),
-              -5px 5px 10px rgba( 31, 38, 135, .7 );
+  box-shadow: 5px 5px 10px rgba(31, 38, 135, 0.7),
+    -5px 5px 10px rgba(31, 38, 135, 0.7);
 `
 
 const CoverGatsbyImage = styled(GatsbyImage)`
@@ -64,7 +63,7 @@ export const NavCard = ({
   imagealt,
   gridrowcss,
 }: CardProps) => {
-  const image = getImage(imagesrc);
+  const image = getImage(imagesrc)
   if (internal === true) {
     return (
       <IndexGlassDiv minHeight="400px" gridTemplateRows={gridrowcss}>
@@ -91,15 +90,15 @@ export const NavCard = ({
 const MeGlassDiv = styled.section`
   padding: 20px;
   min-height: ${props => props.minHeight || "40vh"};
-  background: rgba( 255, 255, 255, 0.25 );
-  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-  backdrop-filter: blur( 10.0px );
-  -webkit-backdrop-filter: blur( 10.0px );
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   border-radius: 10px;
-  border: 1px solid rgba( 255, 255, 255, 0.18 );
+  border: 1px solid rgba(255, 255, 255, 0.18);
   transition: 0.3s;
   &:hover {
-    background: rgba( 255, 255, 255, 0.35 );
+    background: rgba(255, 255, 255, 0.35);
   }
 `
 
@@ -111,38 +110,41 @@ const ContactDiv = styled.section`
 const FullGatsbyImage = styled(GatsbyImage)`
   width: 40%;
   align-self: center;
-  border: 1px solid rgba( 255, 255, 255, 0.18 );
+  border: 1px solid rgba(255, 255, 255, 0.18);
 `
 
 const MarginList = styled.ul`
   margin: 0 10px;
 `
 
-export const MeCard = ({
-  imagesrc,
-  imagealt,
-}: CardProps) => {
-  const image = getImage(imagesrc);
+export const MeCard = ({ imagesrc, imagealt }: CardProps) => {
+  const image = getImage(imagesrc)
   return (
     <MeGlassDiv>
       <ContactDiv>
         <FullGatsbyImage image={image} alt={imagealt} />
         <MarginList>
-          <li><b>Mike Tarpey</b></li>
-          <li><a href="mailto:mike@tarpey.dev">📧 mike@tarpey.dev</a></li>
+          <li>
+            <b>Mike Tarpey</b>
+          </li>
+          <li>
+            <a href="mailto:mike@tarpey.dev">📧 mike@tarpey.dev</a>
+          </li>
         </MarginList>
       </ContactDiv>
       <p>
-        In my day-to-day as an Associate Actuary at Genworth Financial, I analyze the
-        performance of our long-term care insurance block, manage projects, and synthesize many of our
-        team's findings for leadership. I also serve as a resource to other internal teams looking
-        to automate or modernize their processes with Python.
+        In my day-to-day as an Associate Actuary at Genworth Financial, I
+        analyze the performance of our long-term care insurance block, manage
+        projects, and synthesize many of our team's findings for leadership. I
+        also serve as a resource to other internal teams looking to automate or
+        modernize their processes with Python.
       </p>
       <p>
-        I consider myself a non-traditional actuary at this point in my career. After rediscovering
-        a lifelong passion for developing, my goal is to push as far as I can into the data / software
-        engineering space and see what new ideas I can contribute to the world! To that end, I'll be pursuing a
-        graduate degree starting in the fall of 2021.
+        I consider myself a non-traditional actuary at this point in my career.
+        After rediscovering a lifelong passion for developing, my goal is to
+        push as far as I can into the data / software engineering space and see
+        what new ideas I can contribute to the world! To that end, I'll be
+        pursuing a graduate degree starting in the fall of 2021.
       </p>
     </MeGlassDiv>
   )
