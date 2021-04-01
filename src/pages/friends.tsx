@@ -2,13 +2,18 @@ import React from "react"
 import { graphql } from "gatsby"
 import NewLayout from "../components/layout"
 import { NavCard } from "../components/content-cards"
-import { CardGrid } from "../components/content-wrappers"
+import { IndexCardGrid } from "../components/content-wrappers"
 import { OutboundButton } from "../components/buttons"
 
 export default function Home({ data }) {
   return (
-    <NewLayout h1text="friends">
-      <CardGrid>
+    <NewLayout 
+    titleTwo = " - friends"
+    description = "Portal to the amazing things that Mike Tarpey's friends are creating."
+    url="https://miketarpey.com/friends"
+    h1text="friends"
+    >
+      <IndexCardGrid>
         <NavCard
           internal={false}
           label="trevor wentt"
@@ -42,7 +47,7 @@ export default function Home({ data }) {
             width="100%"
           />
         </NavCard>
-      </CardGrid>
+      </IndexCardGrid>
     </NewLayout>
   )
 }

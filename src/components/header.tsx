@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import Navigation from "./navigation"
-import { breakpoints, gridBreakpoints } from "../utils/breakpoints"
+import { gridBreakpoints } from "../utils/breakpoints"
 
 interface HeaderProps {
   h1text: string

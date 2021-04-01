@@ -2,17 +2,17 @@ import React from "react"
 import { graphql } from "gatsby"
 import NewLayout from "../components/layout"
 import { MeCard } from "../components/content-cards"
-import { CardGrid } from "../components/content-wrappers"
+import { AboutCardGrid } from "../components/content-wrappers"
 
 export default function Home({ data }) {
   return (
     <NewLayout h1text="about">
-      <CardGrid>
+      <AboutCardGrid>
         <MeCard
           imagesrc={data.headshot.childImageSharp.gatsbyImageData}
           imagealt="Recent headshot of Mike Tarpey."
         />
-      </CardGrid>
+      </AboutCardGrid>
     </NewLayout>
   )
 }

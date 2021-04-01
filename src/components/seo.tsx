@@ -3,43 +3,35 @@ import { Helmet } from "react-helmet"
 import useSiteMetadata from "../hooks/use-site-metadata"
 
 interface HelmetProps {
-  title?: string
+  titleTwo?: string
   description?: string
-  pathname?: string
-  image?: string
-  children?: React.ReactNode
+  url?: string
+  urlImage?: string
 }
 
-const SEO = ({
-  title = ``,
-  description = ``,
-  pathname = ``,
-  image = ``,
-  children = null,
-}: HelmetProps) => {
-  const site = useSiteMetadata()
+const SEO = ({ titleTwo, description, url, urlImage }: HelmetProps) => {
+  const siteMetadata = useSiteMetadata()
 
   const {
     siteTitle,
-    siteTitleAlt: defaultTitle,
+    siteTitleAlt,
     siteUrl,
-    siteDescription: defaultDescription,
+    siteDescription,
     siteLanguage,
-    siteImage: defaultImage,
-  } = site
+    siteImage,
+  } = siteMetadata
+  const pageTitle = `mike tarpey${titleTwo}`;
+  const pageDescription = description || siteDescription;
+  const pageUrl = url || siteUrl;
+  const pageUrlImage = urlImage || siteImage;
 
-  const seo = {
-    title: title || defaultTitle,
-    description: description || defaultDescription,
-    url: `${siteUrl}${pathname || ``}`,
-    image: `${siteUrl}${image || defaultImage}`,
-  }
+
   return (
     <Helmet>
       <html lang={siteLanguage} />
-      <title>{siteTitle}</title>
+      <title>{pageTitle}</title>
       <meta name="author" content="Mike Tarpey" />
-      <meta name="description" content={seo.description} />
+      <meta name="description" content={pageDescription} />
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
             
       <link
@@ -63,15 +55,15 @@ const SEO = ({
       <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#7a8cc0" />
       <meta name="msapplication-TileColor" content="#7a8cc0" />
       <meta name="theme-color" content="#7a8cc0" />
-      <meta property="og:title" content={title} />
+      <meta property="og:title" content={pageTitle} />
       <meta property="og:description" content={description} />
-      <meta property="og:url" content={seo.url} />
-      <meta property="og:image" content={seo.image} />
-      <meta name="twitter:image" content={seo.image} />
+      <meta property="og:url" content={pageUrl} />
+      <meta property="og:image" content={pageUrlImage} />
+      <meta name="twitter:image" content={pageUrlImage} />
       <meta property="og:type" content="website" />
       <meta name="twitter:card" content="summary_large_image" />
-      <meta property="og:site_name" content="mike tarpey" />
-      {children}
+      {/* this next line is like a subheader on social media cards */}
+      <meta property="og:site_name" content={pageUrl} />
     </Helmet>
   )
 }
