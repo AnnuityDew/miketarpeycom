@@ -1,299 +1,25 @@
-/** @jsx jsx */
-import { jsx } from "theme-ui"
-import { Link } from "gatsby"
-import { OutboundLink } from "gatsby-plugin-google-gtag"
-import {
-  InternalButton,
-  OutboundButton,
-} from "./buttons"
+import React from "react"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import styled from 'styled-components'
 
 interface CardProps {
-  internal: boolean;
-  label: string;
-  children: React.ReactNode;
+  internal?: boolean;
+  label?: string;
+  children?: React.ReactNode;
   imagesrc: ImageDataLike;
   imagealt: string;
-}
-
-interface contentDataType {
-  labelData: string;
-  linkData: string;
-  sizeData: string;
-}
-
-interface ButtonProps {
-  contentSectionHeight: string;
-  contentGridTemplateRows: string;
-  contentName: string;
-  contentInfo: string;
-  contentData: Array<contentDataType>;
-  imageData: string;
-}
-
-interface FrontpageProps {
-  contentSectionHeight: string;
-  contentGridTemplateRows: string;
-  labelData: string;
-  subLabelData?: string;
-  linkData: string;
-  imageData: string;
-}
-
-interface CreditCardProps {
-  contentName: string;
-  contentInfo: string;
-  contentData: Array<contentDataType>;
-  fontColor: string;
-  bgColor: string;
-  borderColor: string;
-  buttonType: string;
-}
-
-const BGSection = styled.section`
-  ${props => {
-    return `
-    background-image: url(${props.imgsrc});
-    background-position: center;
-    background-size: cover;
-    `
-  }}
-`
-
-export const InternalContentCard = ({
-  contentSectionHeight,
-  contentGridTemplateRows,
-  contentName,
-  contentInfo,
-  contentData,
-  imageData,
-}: ButtonProps) => {
-  return (
-    <div
-      sx={{
-        section: {
-          display: "grid",
-          minHeight: contentSectionHeight,
-          fontWeight: "400",
-          gridTemplateRows: contentGridTemplateRows,
-          justifyContent: "center",
-          alignItems: "center",
-        },
-      }}
-    >
-      <BGSection imgsrc={imageData}>
-        <h2 sx={{ justifySelf: "center", alignSelf: "end" }}>{contentName}</h2>
-        <span sx={{ textAlign: "center" }}>{contentInfo}</span>
-        {/* loop through array of friend links to add a button for each */}
-        <div
-          sx={{
-            justifySelf: "center",
-            alignSelf: "start",
-            display: "flex",
-            flexWrap: "wrap",
-            justifyContent: "center",
-            alignItems: "center",
-            div: { padding: "10px" },
-          }}
-        >
-          {contentData.map(content => (
-            <InternalButton
-              key={content.labelData}
-              label={content.labelData}
-              url={content.linkData}
-              kind="light"
-            />
-          ))}
-        </div>
-      </BGSection>
-    </div>
-  )
+  gridrowcss?: string;
 }
 
 
-export const OutboundContentCard = ({
-  contentSectionHeight,
-  contentGridTemplateRows,
-  contentName,
-  contentInfo,
-  contentData,
-  imageData,
-}: ButtonProps) => {
-  return (
-    <div
-      sx={{
-        section: {
-          display: "grid",
-          minHeight: contentSectionHeight,
-          fontWeight: "400",
-          gridTemplateRows: contentGridTemplateRows,
-          justifyContent: "center",
-          alignItems: "center",
-        },
-      }}
-    >
-      <BGSection imgsrc={imageData}>
-        <h2 sx={{ justifySelf: "center", alignSelf: "end" }}>{contentName}</h2>
-        <span sx={{ textAlign: "center" }}>{contentInfo}</span>
-        {/* loop through array of friend links to add a button for each */}
-        <div
-          sx={{
-            justifySelf: "center",
-            alignSelf: "start",
-            display: "flex",
-            flexWrap: "wrap",
-            justifyContent: "center",
-            alignItems: "center",
-            div: { padding: "10px" },
-          }}
-        >
-          {contentData.map(content => (
-            <OutboundButton
-              key={content.labelData}
-              label={content.labelData}
-              url={content.linkData}
-              kind="light"
-            />
-          ))}
-        </div>
-      </BGSection>
-    </div>
-  )
-}
-
-export const FrontpageInternalCard = ({
-  contentSectionHeight,
-  labelData,
-  linkData,
-  imageData,
-}: FrontpageProps) => {
-  return (
-    <div
-      sx={{
-        section: {
-          display: "flex",
-          minHeight: contentSectionHeight,
-          fontWeight: "400",
-          flexDirection: "column",
-          justifyContent: "center",
-          alignItems: "center",
-        },
-      }}
-    >
-      <Link to={linkData}>
-        <BGSection imgsrc={imageData}>
-          <h1 className="home-click">{labelData}</h1>
-        </BGSection>
-      </Link>
-    </div>
-  )
-}
-
-export const FrontpageOutboundCard = ({
-  contentSectionHeight,
-  labelData,
-  subLabelData,
-  linkData,
-  imageData,
-}: FrontpageProps) => {
-  return (
-    <div
-      sx={{
-        section: {
-          display: "flex",
-          minHeight: contentSectionHeight,
-          fontWeight: "400",
-          flexDirection: "column",
-          justifyContent: "center",
-          alignItems: "center",
-        },
-      }}
-    >
-      <OutboundLink href={linkData}>
-        <BGSection imgsrc={imageData}>
-          <h1 className="home-click">{labelData}</h1>
-          <h3 className="home-click">{subLabelData}</h3>
-        </BGSection>
-      </OutboundLink>
-    </div>
-  )
-}
-
-export const CreditCard = ({
-  contentName,
-  contentInfo,
-  contentData,
-  fontColor,
-  bgColor,
-  borderColor,
-  buttonType,
-}: CreditCardProps) => {
-  const acrossGridTemplate = "1fr / 1fr 2fr 1fr"
-  const downGridTemplate = "1fr 1fr 1fr / 1fr"
-  return (
-    <div
-      sx={{
-        display: "grid",
-        gridTemplate: [
-          downGridTemplate,
-          downGridTemplate,
-          downGridTemplate,
-          acrossGridTemplate,
-          acrossGridTemplate,
-        ],
-        fontWeight: "400",
-        minHeight: "20vh",
-        justifyContent: "center",
-        alignItems: "center",
-        color: fontColor,
-        background: bgColor,
-        borderStyle: "none",
-        borderColor: borderColor,
-      }}
-    >
-      <h2
-        sx={{
-          justifySelf: "center",
-          alignSelf: ["end", "end", "end", "center", "center"],
-        }}
-      >
-        {contentName}
-      </h2>
-      <span sx={{ textAlign: "center" }}>{contentInfo}</span>
-      {/* loop through array of friend links to add a button for each */}
-      <div
-        sx={{
-          justifySelf: "center",
-          alignSelf: ["start", "start", "start", "center", "center"],
-          display: "flex",
-          flexWrap: "wrap",
-          justifyContent: "center",
-          alignItems: "center",
-          div: { padding: "10px" },
-        }}
-      >
-        {contentData.map(content => (
-          <OutboundButton
-            key={content.labelData}
-            label={content.labelData}
-            url={content.linkData}
-            kind={buttonType}
-          />
-        ))}
-      </div>
-    </div>
-  )
-}
-
-const GlassDiv = styled.div`
+const IndexGlassDiv = styled.section`
   padding: 20px;
   display: grid;
   grid-gap: 10px;
-  grid-template-rows: 3fr 1fr 2fr 1fr;
+  grid-template-rows: ${props => props.gridTemplateRows || "3fr 1fr 2fr 1fr"};
   align-items: stretch;
-  min-height: 400px;
-  height: 50vh;
+  min-height: ${props => props.minHeight};
+  height: 60vh;
   background: rgba( 255, 255, 255, 0.25 );
   box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
   backdrop-filter: blur( 10.0px );
@@ -302,7 +28,7 @@ const GlassDiv = styled.div`
   border: 1px solid rgba( 255, 255, 255, 0.18 );
   transition: 0.3s;
   &:hover {
-    background: rgba( 255, 255, 255, 0.5 );
+    background: rgba( 255, 255, 255, 0.35 );
   }
 `
 
@@ -311,7 +37,7 @@ https://stackoverflow.com/questions/14142378/
 how-can-i-fill-a-div-with-an-image-while-keeping-it-proportional
 */
 
-const PicDiv = styled.div`
+const CoverPicDiv = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -320,7 +46,7 @@ const PicDiv = styled.div`
               -5px 5px 10px rgba( 31, 38, 135, .7 );
 `
 
-const StyledGatsbyImage = styled(GatsbyImage)`
+const CoverGatsbyImage = styled(GatsbyImage)`
   min-width: 100%;
   min-height: 100%;
   opacity: 100%;
@@ -336,27 +62,88 @@ export const NavCard = ({
   children,
   imagesrc,
   imagealt,
+  gridrowcss,
 }: CardProps) => {
   const image = getImage(imagesrc);
   if (internal === true) {
     return (
-      <GlassDiv>
-        <PicDiv>
-          <StyledGatsbyImage image={image} alt={imagealt} />
-        </PicDiv>
+      <IndexGlassDiv minHeight="400px" gridTemplateRows={gridrowcss}>
+        <CoverPicDiv>
+          <CoverGatsbyImage image={image} alt={imagealt} />
+        </CoverPicDiv>
         <Cardh2>{label}</Cardh2>
         {children}
-      </GlassDiv>
+      </IndexGlassDiv>
     )
   } else {
     return (
-      <GlassDiv>
-        <PicDiv>
-          <StyledGatsbyImage image={image} alt={imagealt} />
-        </PicDiv>
+      <IndexGlassDiv minHeight="400px" gridTemplateRows={gridrowcss}>
+        <CoverPicDiv>
+          <CoverGatsbyImage image={image} alt={imagealt} />
+        </CoverPicDiv>
         <Cardh2>{label}</Cardh2>
         {children}
-      </GlassDiv>
+      </IndexGlassDiv>
     )
   }
+}
+
+const MeGlassDiv = styled.section`
+  padding: 20px;
+  min-height: ${props => props.minHeight || "40vh"};
+  background: rgba( 255, 255, 255, 0.25 );
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 10.0px );
+  -webkit-backdrop-filter: blur( 10.0px );
+  border-radius: 10px;
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
+  transition: 0.3s;
+  &:hover {
+    background: rgba( 255, 255, 255, 0.35 );
+  }
+`
+
+const ContactDiv = styled.section`
+  display: flex;
+  align-items: center;
+`
+
+const FullGatsbyImage = styled(GatsbyImage)`
+  width: 40%;
+  align-self: center;
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
+`
+
+const MarginList = styled.ul`
+  margin: 0 10px;
+`
+
+export const MeCard = ({
+  imagesrc,
+  imagealt,
+}: CardProps) => {
+  const image = getImage(imagesrc);
+  return (
+    <MeGlassDiv>
+      <ContactDiv>
+        <FullGatsbyImage image={image} alt={imagealt} />
+        <MarginList>
+          <li><b>Mike Tarpey</b></li>
+          <li><a href="mailto:mike@tarpey.dev">📧 mike@tarpey.dev</a></li>
+        </MarginList>
+      </ContactDiv>
+      <p>
+        In my day-to-day as an Associate Actuary at Genworth Financial, I analyze the
+        performance of our long-term care insurance block, manage projects, and synthesize many of our
+        team's findings for leadership. I also serve as a resource to other internal teams looking
+        to automate or modernize their processes with Python.
+      </p>
+      <p>
+        I consider myself a non-traditional actuary at this point in my career. After rediscovering
+        a lifelong passion for developing, my goal is to push as far as I can into the data / software
+        engineering space and see what new ideas I can contribute to the world! To that end, I'll be pursuing a
+        graduate degree starting in the fall of 2021.
+      </p>
+    </MeGlassDiv>
+  )
 }

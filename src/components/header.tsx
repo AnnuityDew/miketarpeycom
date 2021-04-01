@@ -1,62 +1,36 @@
-/** @jsx jsx */
-import { jsx } from "theme-ui"
-import { graphql, useStaticQuery, Link } from "gatsby"
-import { StaticImage } from "gatsby-plugin-image"
-import useSiteMetadata from "../hooks/use-site-metadata"
-import Navigation from "../components/navigation"
+import React from "react"
+import styled from "styled-components"
+import Navigation from "./navigation"
+import { breakpoints, gridBreakpoints } from "../utils/breakpoints"
 
-type HeaderProps = { bgColor: string }
+interface HeaderProps {
+  h1text: string;
+}
 
-const Header = ({ bgColor }: HeaderProps) => {
-  const { title } = useSiteMetadata()
+const StyledHeaderDiv = styled.div`
+  display: grid;
+  ${gridBreakpoints("grid-template-columns", [
+    { 0: "1fr" },
+    { 800: "1fr 1fr" },
+  ])}
+  background-color: #FFFFFF;
+`
 
+const GradientText = styled.h1`
+  background: conic-gradient(from 225deg at -100px -100px, #20b2aa, #135da5, #0d0895, #4b0082, #4b0082, #0d0895, #135da5, #20b2aa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+`
+
+const NewHeader = ({ h1text }: HeaderProps) => {
   return (
-    <header
-      sx={{
-        p: [3, 3, 4],
-        width: (t: any): any => [`100%`, `100%`, `100%`, "250px", "250px"],
-        backgroundColor: bgColor,
-        position: [`relative`, `relative`, `relative`, `fixed`],
-        height: `100%`,
-        display: `flex`,
-        padding: ["0px", "0px", "0px", "0px", "0px"],
-        flexDirection: [`row`, `row`, `row`, `column`],
-        alignItems: [`center`, `center`, `center`, `flex-start`],
-        fontSize: ["1.2rem", "1.2rem", "1.5rem", "1.5rem", "1.5rem"],
-        justifyContent: [
-          `space-between`,
-          `space-between`,
-          `space-between`,
-          `flex-start`,
-        ],
-        svg: {
-          fill: "#FFFFFF",
-        },
-        a: {
-          textDecoration: "none",
-          color: "#FFFFFF",
-          "&:hover,&:focus": {
-            color: "#FFCCCC",
-          },
-        },
-        variant: `sidebar`,
-      }}
-      data-testid="sidebar"
-    >
-      <Link
-        to="/"
-        aria-label={`${title}, Back to Home`}
-        sx={{ width: ["150px", "150px", "150px", "100%", "100%"] }}
-      >
-        <StaticImage
-          src="../images/mike-tarpey-headshot-20200427.jpg"
-          alt=""
-          loading="eager"
-        />
-      </Link>
-      <Navigation bgColor={bgColor} />
+    <header>
+      <StyledHeaderDiv>
+        <GradientText>{h1text}</GradientText>
+        <Navigation />
+      </StyledHeaderDiv>
     </header>
   )
 }
 
-export default Header
+export default NewHeader
