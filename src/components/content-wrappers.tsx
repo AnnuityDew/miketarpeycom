@@ -1,6 +1,6 @@
-/** @jsx jsx */
-import { jsx } from "theme-ui"
+import React from "react"
 import styled from "styled-components"
+import { gridBreakpoints } from "../utils/breakpoints"
 
 interface ContentWrapperProps {
   children: React.ReactNode
@@ -8,39 +8,26 @@ interface ContentWrapperProps {
 }
 
 const GriddedIndexSection = styled.section`
-  padding: 10px 0;
+  padding: 0;
   display: grid;
-  grid-gap: 50px;
+  grid-gap: 25px;
   grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr));
 `
 
-export const CardGrid = ({
-  children,
-}: ContentWrapperProps) => (
-  <GriddedIndexSection>
-    {children}
-  </GriddedIndexSection>
+export const IndexCardGrid = ({ children }: ContentWrapperProps) => (
+  <GriddedIndexSection>{children}</GriddedIndexSection>
 )
 
-export const ContentWrapper = ({
-  children,
-  wrapperGridColumns,
-}: ContentWrapperProps) => (
-  <div
-    sx={{
-      display: "grid",
-      wrapperGridColumns: wrapperGridColumns,
-      gridAutoRows: "auto",
-      width: "100%",
-      ul: {
-        fontSize: ["16px", "16px", "20px", "24px", "24px"],
-      },
-      span: {
-        fontSize: ["16px", "16px", "20px", "24px", "24px"],
-        margin: "20px 40px",
-      },
-    }}
-  >
-    {children}
-  </div>
+const GriddedAboutSection = styled.section`
+  padding: 0;
+  display: grid;
+  grid-gap: 25px;
+  ${gridBreakpoints("grid-template-columns", [
+    { 0: "1fr" },
+    { 800: "400px 1fr" },
+  ])}
+`
+
+export const AboutCardGrid = ({ children }: ContentWrapperProps) => (
+  <GriddedAboutSection>{children}</GriddedAboutSection>
 )

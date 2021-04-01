@@ -6,16 +6,19 @@
   margin: 0;
 }
 
+/* two solutions for scrollbar on some but not all pages:
+https://stackoverflow.com/questions/1417934/how-to-prevent-scrollbar-from-repositioning-web-page
+https://aykevl.nl/2014/09/fix-jumping-scrollbar
+*/
+
 html {
   font-size: 1rem;
   font-family: "Poppins", "Lato", sans-serif;
   -webkit-text-size-adjust: 100%;
   background: conic-gradient(from 225deg at -100px -100px, #20b2aa, #135da5, #0d0895, #4b0082, #4b0082, #0d0895, #135da5, #20b2aa);
   color: white;
-}
-
-body {
-  margin: 0 50px;
+  min-height: 100%;
+  overflow-y: scroll;
 }
 
 img {
@@ -24,13 +27,25 @@ img {
 
 main {
   font-family: "Poppins", "Lato", sans-serif;
+  margin: 25px 25px;
 }
 
 h1 {
-  margin: 20px 0;
+  padding: 20px 25px;
 }
 
 ul {
   list-style-type: none;
   padding-inline-start: 0;
+  font-size: 0.9rem;
+}
+
+p {
+  margin: 10px 0 0 0;
+  font-size: 0.9rem;
+}
+
+a {
+  color: white;
+  text-decoration: none;
 }

@@ -1,4 +1,4 @@
-import * as React from "react"
+import React from "react"
 
 const Logo = () => (
   <svg viewBox="0 0 493.19 493.19">

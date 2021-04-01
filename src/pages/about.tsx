@@ -1,29 +1,35 @@
-/** @jsx jsx */
-import { jsx } from "theme-ui"
-import Layout from "../components/layout"
-import { ContentWrapper } from "../components/content-wrappers"
-import { OutboundContentCard } from "../components/content-cards"
+import React from "react"
+import { graphql } from "gatsby"
+import NewLayout from "../components/layout"
+import { MeCard } from "../components/content-cards"
+import { AboutCardGrid } from "../components/content-wrappers"
 
-export default function About() {
+export default function Home({ data }) {
   return (
-    <Layout>
-      <ContentWrapper wrapperGridColumns={["1fr", "1fr", "1fr", "1fr", "1fr"]}>
-        <OutboundContentCard
-          contentSectionHeight="100vh"
-          contentGridTemplateRows="1.2fr 0.6fr 1.2fr"
-          contentName="page under construction!"
-          contentInfo="For now, check out LinkedIn if you're looking for my up-to-date
-            resume."
-          contentData={[
-            {
-              labelData: "visit linkedin.com",
-              linkData: "https://www.linkedin.com/in/mptarpey/",
-              sizeData: "large",
-            },
-          ]}
-          imageData="/pics/mike-tarpey-richmond-actuary.jpg"
+    <NewLayout 
+    titleTwo = " - about"
+    description = "Mike Tarpey's resume and project history."
+    url="https://miketarpey.com/about"
+    h1text="about"
+    >
+      <AboutCardGrid>
+        <MeCard
+          imagesrc={data.headshot.childImageSharp.gatsbyImageData}
+          imagealt="Recent headshot of Mike Tarpey."
         />
-      </ContentWrapper>
-    </Layout>
+      </AboutCardGrid>
+    </NewLayout>
   )
 }
+
+export const pageQuery = graphql`
+  query getAboutPictures {
+    headshot: file(
+      relativePath: { eq: "raw/mike-tarpey-headshot-20200427.jpg" }
+    ) {
+      childImageSharp {
+        gatsbyImageData(placeholder: NONE)
+      }
+    }
+  }
+`

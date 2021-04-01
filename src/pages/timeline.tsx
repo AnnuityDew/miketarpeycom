@@ -1,28 +1,28 @@
-/** @jsx jsx */
-import { jsx } from "theme-ui"
-import Layout from "../components/layout"
-import { ContentWrapper } from "../components/content-wrappers"
-import { OutboundContentCard } from "../components/content-cards"
+import React from "react"
+import { graphql } from "gatsby"
+import NewLayout from "../components/layout"
 
-export default function Timeline() {
+export default function Page() {
   return (
-    <Layout>
-      <ContentWrapper wrapperGridColumns={["1fr", "1fr", "1fr", "1fr", "1fr"]}>
-        <OutboundContentCard
-          contentSectionHeight="100vh"
-          contentGridTemplateRows="1.2fr 0.6fr 1.2fr"
-          contentName="page under construction!"
-          contentInfo="For now, check out the mini web apps I've created on my other site."
-          contentData={[
-            {
-              labelData: "visit tarpey.dev",
-              linkData: "https://tarpey.dev/",
-              sizeData: "large",
-            },
-          ]}
-          imageData="/pics/mike-tarpey-richmond-actuary.jpg"
-        />
-      </ContentWrapper>
-    </Layout>
+    <NewLayout 
+    titleTwo = " - timeline"
+    description = "A selection of the memories that Mike Tarpey carries around."
+    url="https://miketarpey.com/timeline"
+    h1text="timeline"
+    >
+      <h2>Under construction!</h2>
+    </NewLayout>
   )
 }
+
+export const pageQuery = graphql`
+  query getTimelinePictures {
+    headshot: file(
+      relativePath: { eq: "raw/mike-tarpey-headshot-20200427.jpg" }
+    ) {
+      childImageSharp {
+        gatsbyImageData(placeholder: BLURRED)
+      }
+    }
+  }
+`

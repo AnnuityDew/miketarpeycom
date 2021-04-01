@@ -1,22 +1,21 @@
 import React from "react"
 import { graphql } from "gatsby"
-import NewLayout from "../components/new-layout"
+import NewLayout from "../components/layout"
 import useNavMetadata from "../hooks/use-nav-metadata"
 import { NavCard } from "../components/content-cards"
-import { CardGrid } from "../components/content-wrappers"
+import { IndexCardGrid } from "../components/content-wrappers"
 import { InternalButton, OutboundButton } from "../components/buttons"
 
 export default function Home({ data }) {
   const { navMetadata } = useNavMetadata()
   return (
-    <NewLayout>
-      <h1>mike tarpey</h1>
-      <CardGrid>
+    <NewLayout h1text="mike tarpey">
+      <IndexCardGrid>
         <NavCard
           internal={true}
           label="about"
           imagesrc={data.about.childImageSharp.gatsbyImageData}
-          imagealt="Recent headshot of Mike Tarpey."
+          imagealt="Mike Tarpey on his way to PAX East 2020 in Boston, Massachusetts."
         >
           <ul>
             <li>-aspiring software engineer</li>
@@ -24,7 +23,12 @@ export default function Home({ data }) {
             <li>-casual Twitch streamer</li>
             <li>-UConn alum.</li>
           </ul>
-          <InternalButton label="view resume + projects" url={navMetadata[1]["slug"]} kind="light" width="100%" />
+          <InternalButton
+            label="full resume + projects"
+            url={navMetadata[1]["slug"]}
+            kind="light"
+            width="100%"
+          />
         </NavCard>
         <NavCard
           internal={true}
@@ -32,10 +36,13 @@ export default function Home({ data }) {
           imagesrc={data.timeline.childImageSharp.gatsbyImageData}
           imagealt="Childhood picture of Mike Tarpey at Daytona Beach."
         >
-          <p>
-            A selection of the memories I carry around.
-          </p>
-          <InternalButton label="coming soon!" url={navMetadata[2]["slug"]} kind="light" width="100%" />
+          <p>A selection of the memories I carry around.</p>
+          <InternalButton
+            label="coming soon!"
+            url={navMetadata[2]["slug"]}
+            kind="light"
+            width="100%"
+          />
         </NavCard>
         <NavCard
           internal={true}
@@ -43,10 +50,13 @@ export default function Home({ data }) {
           imagesrc={data.friends.childImageSharp.gatsbyImageData}
           imagealt="Mike Tarpey's last photo with his UConn crew before graduating."
         >
-          <p>
-            Portal to the amazing things that my friends are creating.
-          </p>
-          <InternalButton label="learn more" url={navMetadata[3]["slug"]} kind="light" width="100%" />
+          <p>Portal to the amazing things that my friends are creating.</p>
+          <InternalButton
+            label="learn more"
+            url={navMetadata[3]["slug"]}
+            kind="light"
+            width="100%"
+          />
         </NavCard>
         <NavCard
           internal={false}
@@ -55,9 +65,15 @@ export default function Home({ data }) {
           imagealt="Screenshot of some JavaScript code."
         >
           <p>
-            My app sandbox. Game backlog, March Madness, stats for Mildred League, and more...
+            My app sandbox. Game backlog, March Madness, stats for Mildred
+            League, and more...
           </p>
-          <OutboundButton label="visit tarpey.dev" url="https://tarpey.dev" kind="light" width="100%" />
+          <OutboundButton
+            label="visit tarpey.dev"
+            url="https://tarpey.dev"
+            kind="light"
+            width="100%"
+          />
         </NavCard>
         <NavCard
           internal={false}
@@ -65,10 +81,13 @@ export default function Home({ data }) {
           imagesrc={data.blog.childImageSharp.gatsbyImageData}
           imagealt="A cat standing on Mike Tarpey's laptop keyboard."
         >
-          <p>
-            Ideas and solutions from my day-to-day.
-          </p>
-          <OutboundButton label="visit medium.com" url="https://miketarpey.medium.com/" kind="light" width="100%" />
+          <p>Ideas and solutions from my day-to-day.</p>
+          <OutboundButton
+            label="visit medium.com"
+            url="https://miketarpey.medium.com/"
+            kind="light"
+            width="100%"
+          />
         </NavCard>
         <NavCard
           internal={true}
@@ -76,12 +95,15 @@ export default function Home({ data }) {
           imagesrc={data.credits.childImageSharp.gatsbyImageData}
           imagealt="The dogs Baxter and Bravo hanging out in the backyard, one stacked on top of the other."
         >
-        <p>
-          The technologies that currently make this site possible.
-        </p>
-        <InternalButton label="view credits" url={navMetadata[4]["slug"]} kind="light" width="100%" />
+          <p>The technologies that currently make this site possible.</p>
+          <InternalButton
+            label="view credits"
+            url={navMetadata[4]["slug"]}
+            kind="light"
+            width="100%"
+          />
         </NavCard>
-      </CardGrid>
+      </IndexCardGrid>
     </NewLayout>
   )
 }
@@ -90,32 +112,34 @@ export const pageQuery = graphql`
   query getIndexPictures {
     about: file(relativePath: { eq: "raw/mike-tarpey-at-pax.jpg" }) {
       childImageSharp {
-        gatsbyImageData(placeholder: BLURRED)
+        gatsbyImageData(placeholder: NONE)
       }
     }
-    timeline: file(relativePath: { eq: "raw/mike-tarpey-childhood-beach.jpg" }) {
+    timeline: file(
+      relativePath: { eq: "raw/mike-tarpey-childhood-beach.jpg" }
+    ) {
       childImageSharp {
-        gatsbyImageData(placeholder: BLURRED)
+        gatsbyImageData(placeholder: NONE)
       }
     }
     friends: file(relativePath: { eq: "raw/dew-uconn-crew.jpg" }) {
       childImageSharp {
-        gatsbyImageData(placeholder: BLURRED)
+        gatsbyImageData(placeholder: NONE)
       }
     }
-    apps: file(relativePath: { eq: "raw/code-screencap.png" }) {
+    apps: file(relativePath: { eq: "raw/tarpeydevog.png" }) {
       childImageSharp {
-        gatsbyImageData(placeholder: BLURRED)
+        gatsbyImageData(placeholder: NONE)
       }
     }
-    blog: file(relativePath: { eq: "raw/cat-blogger.jpg" }) {
+    blog: file(relativePath: { eq: "raw/cat-blogger-hype.jpg" }) {
       childImageSharp {
-        gatsbyImageData(placeholder: BLURRED)
+        gatsbyImageData(placeholder: NONE)
       }
     }
     credits: file(relativePath: { eq: "raw/baxter-bravo-stack.jpg" }) {
       childImageSharp {
-        gatsbyImageData(placeholder: BLURRED)
+        gatsbyImageData(placeholder: NONE)
       }
     }
   }

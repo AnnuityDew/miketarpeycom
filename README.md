@@ -14,8 +14,7 @@ My personal website.
   * [View license](#third-party-licenses)
 
 ## Key Packages
-* [Theme UI](https://theme-ui.com) for CSS-in-JS
-* [Shoelace](https://shoelace.style) for good-looking components
+* [Styled Components](https://styled-components.com) for CSS-in-JS
 * [Prettier](https://prettier.io) for easy code formatting
 * [React Helmet](https://github.com/nfl/react-helmet) for SEO
 
@@ -26,6 +25,8 @@ My personal website.
 
 ## References
 * [Glassmorphism](https://glassmorphism.com)
+* [conic.css](https://www.conic.style)
+* [Aurora UI](https://uxdesign.cc/aurora-ui-new-visual-trend-for-2021-c763a7daa7e2)
 * Important SEO/site-checking tools!
   * [Favicon Generator](https://realfavicongenerator.net/)
   * [Facebook Crawler](https://developers.facebook.com/tools/debug)
@@ -41,28 +42,4 @@ My personal website.
 
 ## Third-party licenses
 
-**Theme used as the starting point for the site**
-* Source: [gatsby-theme-jodie](https://github.com/LekoArts/gatsby-themes/tree/master/themes/gatsby-theme-jodie)
-* License:
-
-> MIT License
-> 
-> Copyright (c) 2020 LekoArts
-> 
-> Permission is hereby granted, free of charge, to any person obtaining a copy
-> of this software and associated documentation files (the "Software"), to deal
-> in the Software without restriction, including without limitation the rights
-> to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-> copies of the Software, and to permit persons to whom the Software is
-> furnished to do so, subject to the following conditions:
-> 
-> The above copyright notice and this permission notice shall be included in all
-> copies or substantial portions of the Software.
-> 
-> THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-> IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-> FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-> AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-> LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-> OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-> SOFTWARE.
+**None right now!**
