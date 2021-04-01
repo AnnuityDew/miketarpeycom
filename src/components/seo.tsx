@@ -20,11 +20,11 @@ const SEO = ({ titleTwo, description, url, urlImage }: HelmetProps) => {
     siteLanguage,
     siteImage,
   } = siteMetadata
+
   const pageTitle = `mike tarpey${titleTwo}`;
   const pageDescription = description || siteDescription;
   const pageUrl = url || siteUrl;
-  const pageUrlImage = urlImage || siteImage;
-
+  const pageUrlImage = `${siteUrl}${urlImage || siteImage}`;
 
   return (
     <Helmet>
