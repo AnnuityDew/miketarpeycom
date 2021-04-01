@@ -12,10 +12,10 @@ interface LayoutProps {
 }
 
 const NewLayout = ({
-  titleTwo = "",
-  description = "",
-  url = "",
-  urlImage = "",
+  titleTwo,
+  description,
+  url,
+  urlImage,
   h1text,
   children,
 }: LayoutProps) => (

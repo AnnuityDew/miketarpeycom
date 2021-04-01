@@ -6,7 +6,12 @@ import { AboutCardGrid } from "../components/content-wrappers"
 
 export default function Home({ data }) {
   return (
-    <NewLayout h1text="about">
+    <NewLayout 
+    titleTwo = " - about"
+    description = "Mike Tarpey's resume and project history."
+    url="https://miketarpey.com/about"
+    h1text="about"
+    >
       <AboutCardGrid>
         <MeCard
           imagesrc={data.headshot.childImageSharp.gatsbyImageData}

@@ -56,7 +56,7 @@ const SEO = ({ titleTwo, description, url, urlImage }: HelmetProps) => {
       <meta name="msapplication-TileColor" content="#7a8cc0" />
       <meta name="theme-color" content="#7a8cc0" />
       <meta property="og:title" content={pageTitle} />
-      <meta property="og:description" content={description} />
+      <meta property="og:description" content={pageDescription} />
       <meta property="og:url" content={pageUrl} />
       <meta property="og:image" content={pageUrlImage} />
       <meta name="twitter:image" content={pageUrlImage} />
