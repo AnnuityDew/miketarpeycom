@@ -12,7 +12,7 @@ interface LayoutProps {
 }
 
 const NewLayout = ({
-  titleTwo,
+  titleTwo = "",
   description,
   url,
   urlImage,
